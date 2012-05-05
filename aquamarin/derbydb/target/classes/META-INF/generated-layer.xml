@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN"
+                            "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="OptionsDialog">
+        <file name="com-magnetpwns-derbydb-DatabaseOptionsPanelController.instance">
+            <!--com.magnetpwns.derbydb.DatabaseOptionsPanelController-->
+            <attr
+                methodvalue="org.netbeans.spi.options.OptionsCategory.createCategory" name="instanceCreate"/>
+            <attr name="controller" newvalue="com.magnetpwns.derbydb.DatabaseOptionsPanelController"/>
+            <attr
+                bundlevalue="com.magnetpwns.derbydb.Bundle#OptionsCategory_Name_Database" name="categoryName"/>
+            <attr name="iconBase" stringvalue="com/magnetpwns/derbydb/database32.png"/>
+            <attr
+                bundlevalue="com.magnetpwns.derbydb.Bundle#OptionsCategory_Keywords_Database" name="keywords"/>
+            <attr name="keywordsCategory" stringvalue="Database"/>
+        </file>
+    </folder>
+</filesystem>

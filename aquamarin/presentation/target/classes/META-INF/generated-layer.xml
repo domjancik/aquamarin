@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN"
+                            "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="ProductTopComponent.settings">
+                <!--com.magnetpwns.presentation.ProductTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
+<settings version="1.0">
+  <instance class="com.magnetpwns.presentation.ProductTopComponent"/>
+</settings>
+]]></file>
+            <file name="DocumentTopComponent.settings">
+                <!--com.magnetpwns.presentation.DocumentTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
+<settings version="1.0">
+  <instance class="com.magnetpwns.presentation.DocumentTopComponent"/>
+</settings>
+]]></file>
+            <file name="AddressBookTopComponent.settings">
+                <!--com.magnetpwns.presentation.AddressBookTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
+<settings version="1.0">
+  <instance class="com.magnetpwns.presentation.AddressBookTopComponent"/>
+</settings>
+]]></file>
+            <file name="StockTopComponent.settings">
+                <!--com.magnetpwns.presentation.StockTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE settings PUBLIC "-//NetBeans//DTD Session settings 1.0//EN" "http://www.netbeans.org/dtds/sessionsettings-1_0.dtd">
+<settings version="1.0">
+  <instance class="com.magnetpwns.presentation.StockTopComponent"/>
+</settings>
+]]></file>
+        </folder>
+        <folder name="Modes">
+            <folder name="editor">
+                <file name="ProductTopComponent.wstcref">
+                    <!--com.magnetpwns.presentation.ProductTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
+<tc-ref version="2.0">
+  <tc-id id="ProductTopComponent"/>
+  <state opened="false"/>
+</tc-ref>
+]]></file>
+                <file name="DocumentTopComponent.wstcref">
+                    <!--com.magnetpwns.presentation.DocumentTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
+<tc-ref version="2.0">
+  <tc-id id="DocumentTopComponent"/>
+  <state opened="false"/>
+</tc-ref>
+]]></file>
+                <file name="AddressBookTopComponent.wstcref">
+                    <!--com.magnetpwns.presentation.AddressBookTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
+<tc-ref version="2.0">
+  <tc-id id="AddressBookTopComponent"/>
+  <state opened="false"/>
+</tc-ref>
+]]></file>
+                <file name="StockTopComponent.wstcref">
+                    <!--com.magnetpwns.presentation.StockTopComponent--><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tc-ref PUBLIC "-//NetBeans//DTD Top Component in Mode Properties 2.0//EN" "http://www.netbeans.org/dtds/tc-ref2_0.dtd">
+<tc-ref version="2.0">
+  <tc-id id="StockTopComponent"/>
+  <state opened="false"/>
+</tc-ref>
+]]></file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="com-magnetpwns-presentation-ProductTopComponent.instance">
+                <!--com.magnetpwns.presentation.ProductTopComponent-->
+                <attr
+                    methodvalue="org.openide.windows.TopComponent.openAction" name="instanceCreate"/>
+                <attr name="component" newvalue="com.magnetpwns.presentation.ProductTopComponent"/>
+                <attr name="preferredID" stringvalue="ProductTopComponent"/>
+                <attr
+                    bundlevalue="com.magnetpwns.presentation.Bundle#CTL_ProductAction" name="displayName"/>
+                <attr name="iconBase" stringvalue="com/magnetpwns/presentation/product24.png"/>
+            </file>
+            <file name="com-magnetpwns-presentation-DocumentTopComponent.instance">
+                <!--com.magnetpwns.presentation.DocumentTopComponent-->
+                <attr
+                    methodvalue="org.openide.windows.TopComponent.openAction" name="instanceCreate"/>
+                <attr name="component" newvalue="com.magnetpwns.presentation.DocumentTopComponent"/>
+                <attr name="preferredID" stringvalue="DocumentTopComponent"/>
+                <attr
+                    bundlevalue="com.magnetpwns.presentation.Bundle#CTL_DocumentAction" name="displayName"/>
+                <attr name="iconBase" stringvalue="com/magnetpwns/presentation/document24.png"/>
+            </file>
+            <file name="com-magnetpwns-presentation-AddressBookTopComponent.instance">
+                <!--com.magnetpwns.presentation.AddressBookTopComponent-->
+                <attr
+                    methodvalue="org.openide.windows.TopComponent.openAction" name="instanceCreate"/>
+                <attr name="component" newvalue="com.magnetpwns.presentation.AddressBookTopComponent"/>
+                <attr name="preferredID" stringvalue="AddressBookTopComponent"/>
+                <attr
+                    bundlevalue="com.magnetpwns.presentation.Bundle#CTL_AddressBookAction" name="displayName"/>
+                <attr name="iconBase" stringvalue="com/magnetpwns/presentation/addressbook.png"/>
+            </file>
+            <file name="com-magnetpwns-presentation-StockTopComponent.instance">
+                <!--com.magnetpwns.presentation.StockTopComponent-->
+                <attr
+                    methodvalue="org.openide.windows.TopComponent.openAction" name="instanceCreate"/>
+                <attr name="component" newvalue="com.magnetpwns.presentation.StockTopComponent"/>
+                <attr name="preferredID" stringvalue="StockTopComponent"/>
+                <attr
+                    bundlevalue="com.magnetpwns.presentation.Bundle#CTL_StockAction" name="displayName"/>
+                <attr name="iconBase" stringvalue="com/magnetpwns/presentation/stock24.png"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Toolbars">
+        <folder name="Views">
+            <file name="com-magnetpwns-presentation-ProductTopComponent.shadow">
+                <!--com.magnetpwns.presentation.ProductTopComponent-->
+                <attr name="originalFile" stringvalue="Actions/Window/com-magnetpwns-presentation-ProductTopComponent.instance"/>
+            </file>
+            <file name="com-magnetpwns-presentation-DocumentTopComponent.shadow">
+                <!--com.magnetpwns.presentation.DocumentTopComponent-->
+                <attr name="originalFile" stringvalue="Actions/Window/com-magnetpwns-presentation-DocumentTopComponent.instance"/>
+            </file>
+            <file name="com-magnetpwns-presentation-AddressBookTopComponent.shadow">
+                <!--com.magnetpwns.presentation.AddressBookTopComponent-->
+                <attr name="originalFile" stringvalue="Actions/Window/com-magnetpwns-presentation-AddressBookTopComponent.instance"/>
+            </file>
+            <file name="com-magnetpwns-presentation-StockTopComponent.shadow">
+                <!--com.magnetpwns.presentation.StockTopComponent-->
+                <attr name="originalFile" stringvalue="Actions/Window/com-magnetpwns-presentation-StockTopComponent.instance"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="xml">
+        <folder name="entities">
+            <folder name="com_magnetpwns_presentation">
+                <file name="Product" url="nbres:/org/netbeans/modules/settings/resources/properties-1_0.dtd">
+                    <!--com.magnetpwns.presentation.ProductTopComponent-->
+                    <attr name="hint.originalPublicID" stringvalue="-//com.magnetpwns.presentation//Product//EN"/>
+                </file>
+                <file name="Document" url="nbres:/org/netbeans/modules/settings/resources/properties-1_0.dtd">
+                    <!--com.magnetpwns.presentation.DocumentTopComponent-->
+                    <attr name="hint.originalPublicID" stringvalue="-//com.magnetpwns.presentation//Document//EN"/>
+                </file>
+                <file name="AddressBook" url="nbres:/org/netbeans/modules/settings/resources/properties-1_0.dtd">
+                    <!--com.magnetpwns.presentation.AddressBookTopComponent-->
+                    <attr name="hint.originalPublicID" stringvalue="-//com.magnetpwns.presentation//AddressBook//EN"/>
+                </file>
+                <file name="Stock" url="nbres:/org/netbeans/modules/settings/resources/properties-1_0.dtd">
+                    <!--com.magnetpwns.presentation.StockTopComponent-->
+                    <attr name="hint.originalPublicID" stringvalue="-//com.magnetpwns.presentation//Stock//EN"/>
+                </file>
+            </folder>
+        </folder>
+        <folder name="memory">
+            <folder name="com">
+                <folder name="magnetpwns">
+                    <folder name="presentation">
+                        <file name="ProductTopComponent">
+                            <!--com.magnetpwns.presentation.ProductTopComponent-->
+                            <attr name="settings.providerPath" stringvalue="xml/lookups//com_magnetpwns_presentation/Product.instance"/>
+                        </file>
+                        <file name="DocumentTopComponent">
+                            <!--com.magnetpwns.presentation.DocumentTopComponent-->
+                            <attr name="settings.providerPath" stringvalue="xml/lookups//com_magnetpwns_presentation/Document.instance"/>
+                        </file>
+                        <file name="AddressBookTopComponent">
+                            <!--com.magnetpwns.presentation.AddressBookTopComponent-->
+                            <attr name="settings.providerPath" stringvalue="xml/lookups//com_magnetpwns_presentation/AddressBook.instance"/>
+                        </file>
+                        <file name="StockTopComponent">
+                            <!--com.magnetpwns.presentation.StockTopComponent-->
+                            <attr name="settings.providerPath" stringvalue="xml/lookups//com_magnetpwns_presentation/Stock.instance"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="lookups">
+            <folder name="com_magnetpwns_presentation">
+                <file name="Product.instance">
+                    <!--com.magnetpwns.presentation.ProductTopComponent-->
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.create" name="instanceCreate"/>
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.properties" name="settings.convertor"/>
+                    <attr name="settings.instanceClass" stringvalue="com.magnetpwns.presentation.ProductTopComponent"/>
+                    <attr name="settings.instanceOf" stringvalue="com.magnetpwns.presentation.ProductTopComponent"/>
+                    <attr boolvalue="true" name="xmlproperties.preventStoring"/>
+                </file>
+                <file name="Document.instance">
+                    <!--com.magnetpwns.presentation.DocumentTopComponent-->
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.create" name="instanceCreate"/>
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.properties" name="settings.convertor"/>
+                    <attr name="settings.instanceClass" stringvalue="com.magnetpwns.presentation.DocumentTopComponent"/>
+                    <attr name="settings.instanceOf" stringvalue="com.magnetpwns.presentation.DocumentTopComponent"/>
+                    <attr boolvalue="true" name="xmlproperties.preventStoring"/>
+                </file>
+                <file name="AddressBook.instance">
+                    <!--com.magnetpwns.presentation.AddressBookTopComponent-->
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.create" name="instanceCreate"/>
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.properties" name="settings.convertor"/>
+                    <attr name="settings.instanceClass" stringvalue="com.magnetpwns.presentation.AddressBookTopComponent"/>
+                    <attr name="settings.instanceOf" stringvalue="com.magnetpwns.presentation.AddressBookTopComponent"/>
+                    <attr boolvalue="true" name="xmlproperties.preventStoring"/>
+                </file>
+                <file name="Stock.instance">
+                    <!--com.magnetpwns.presentation.StockTopComponent-->
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.create" name="instanceCreate"/>
+                    <attr
+                        methodvalue="org.netbeans.api.settings.Factory.properties" name="settings.convertor"/>
+                    <attr name="settings.instanceClass" stringvalue="com.magnetpwns.presentation.StockTopComponent"/>
+                    <attr name="settings.instanceOf" stringvalue="com.magnetpwns.presentation.StockTopComponent"/>
+                    <attr boolvalue="true" name="xmlproperties.preventStoring"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

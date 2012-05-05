@@ -1,0 +1,717 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.magnetpwns.presentation;
+
+import com.magnetpwns.presentation.dialogs.edit.UnitEditDialog;
+import com.magnetpwns.presentation.dialogs.edit.TaxRateEditDialog;
+import com.magnetpwns.presentation.dialogs.edit.ManufacturerEditDialog;
+import com.magnetpwns.presentation.dialogs.view.PriceViewDialog;
+import com.magnetpwns.bussiness.AquamarinFacade;
+import com.magnetpwns.component.JTextFieldLimitedDocument;
+import com.magnetpwns.model.*;
+import com.magnetpwns.model.exception.AquamarinException;
+import com.magnetpwns.presentation.dialogs.*;
+import com.magnetpwns.presentation.model.ProductTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
+import javax.swing.*;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import org.openide.util.NbBundle;
+import org.openide.windows.TopComponent;
+import org.netbeans.api.settings.ConvertAsProperties;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.util.Exceptions;
+
+/**
+ * Top component which displays something.
+ */
+@ConvertAsProperties(dtd = "-//com.magnetpwns.presentation//Product//EN",
+autostore = false)
+@TopComponent.Description(preferredID = "ProductTopComponent",
+iconBase = "com/magnetpwns/presentation/product24.png",
+persistenceType = TopComponent.PERSISTENCE_ALWAYS)
+@TopComponent.Registration(mode = "editor", openAtStartup = false)
+@ActionID(category = "Window", id = "com.magnetpwns.presentation.ProductTopComponent")
+@ActionReference(path = "Toolbars/Views" /*, position = 333 */)
+@TopComponent.OpenActionRegistration(displayName = "#CTL_ProductAction",
+preferredID = "ProductTopComponent")
+public final class ProductTopComponent extends TopComponent {
+
+    private ProductTableModel productTableModel;
+    
+    private EditMode editMode = EditMode.NONE;
+    private int editId;
+    
+    public ProductTopComponent() {
+        initComponents();
+        setName(NbBundle.getMessage(ProductTopComponent.class, "CTL_ProductTopComponent"));
+        setToolTipText(NbBundle.getMessage(ProductTopComponent.class, "HINT_ProductTopComponent"));
+
+        final ListSelectionModel sm = productTable.getSelectionModel();
+        sm.addListSelectionListener(new ListSelectionListener() {
+
+            @Override
+            public void valueChanged(ListSelectionEvent lse) {
+                boolean enable = !sm.isSelectionEmpty();
+                editButton.setEnabled(enable);
+                deleteButton.setEnabled(enable);
+                addPriceButton.setEnabled(enable);
+                viewPriceButton.setEnabled(enable);
+            }
+        });
+        
+        // Keyboard shortcuts
+        Action addAction = new AbstractAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addButtonActionPerformed(e);
+            }
+        };
+        
+        Action editAction = new AbstractAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (editButton.isEnabled()) {
+                    editButtonActionPerformed(e);
+                }
+            }
+        };
+        
+        Action filterAction = new AbstractAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                filterButtonActionPerformed(e);
+            }
+        };
+        
+        Action okAction = new AbstractAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                okButtonActionPerformed(e);
+            }
+        };
+        
+        Action cancelAction = new AbstractAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cancelButtonActionPerformed(e);
+            }
+        };
+        
+        getActionMap().put("add", addAction);
+        getActionMap().put("edit", editAction);
+        getActionMap().put("filter", filterAction);
+        getActionMap().put("cancel", cancelAction);
+        getActionMap().put("ok", okAction);
+        InputMap im = getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        im.put(KeyStroke.getKeyStroke("F5"), "add");
+        im.put(KeyStroke.getKeyStroke("F6"), "edit");
+        im.put(KeyStroke.getKeyStroke("F7"), "filter");
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancel");
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "ok");
+    }
+
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        mainToolBar = new javax.swing.JToolBar();
+        filterButton = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        addPriceButton = new javax.swing.JButton();
+        viewPriceButton = new javax.swing.JButton();
+        jToolBar1 = new javax.swing.JToolBar();
+        manufButton = new javax.swing.JButton();
+        taxButton = new javax.swing.JButton();
+        unitButton = new javax.swing.JButton();
+        formPanel = new javax.swing.JPanel();
+        nameField = new javax.swing.JTextField();
+        descField = new javax.swing.JTextField();
+        priceField = new javax.swing.JTextField();
+        priceBoughtField = new javax.swing.JTextField();
+        manufComboBox = new javax.swing.JComboBox();
+        vipCheckBox = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        okButton = new javax.swing.JButton();
+        codeField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        codeManufField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        taxRateComboBox = new javax.swing.JComboBox();
+        unitComboBox = new javax.swing.JComboBox();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        cancelButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        productTable = new javax.swing.JTable();
+
+        mainToolBar.setFloatable(false);
+        mainToolBar.setRollover(true);
+
+        filterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/filter24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(filterButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.filterButton.text")); // NOI18N
+        filterButton.setToolTipText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.filterButton.toolTipText")); // NOI18N
+        filterButton.setFocusable(false);
+        filterButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        filterButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        filterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(filterButton);
+
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/add24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(addButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.addButton.text")); // NOI18N
+        addButton.setToolTipText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.addButton.toolTipText")); // NOI18N
+        addButton.setFocusable(false);
+        addButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(addButton);
+
+        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/edit24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(editButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.editButton.text")); // NOI18N
+        editButton.setToolTipText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.editButton.toolTipText")); // NOI18N
+        editButton.setEnabled(false);
+        editButton.setFocusable(false);
+        editButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        editButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(editButton);
+
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/delete24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(deleteButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.deleteButton.text")); // NOI18N
+        deleteButton.setToolTipText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.deleteButton.toolTipText")); // NOI18N
+        deleteButton.setEnabled(false);
+        deleteButton.setFocusable(false);
+        deleteButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        deleteButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(deleteButton);
+
+        addPriceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/addprice24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(addPriceButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.addPriceButton.text")); // NOI18N
+        addPriceButton.setEnabled(false);
+        addPriceButton.setFocusable(false);
+        addPriceButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addPriceButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        addPriceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPriceButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(addPriceButton);
+
+        viewPriceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/invoice24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(viewPriceButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.viewPriceButton.text")); // NOI18N
+        viewPriceButton.setEnabled(false);
+        viewPriceButton.setFocusable(false);
+        viewPriceButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        viewPriceButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        viewPriceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPriceButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(viewPriceButton);
+
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        manufButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/manuf24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(manufButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.manufButton.text")); // NOI18N
+        manufButton.setToolTipText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.manufButton.toolTipText")); // NOI18N
+        manufButton.setFocusable(false);
+        manufButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        manufButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        manufButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manufButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(manufButton);
+
+        taxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/taxrate24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(taxButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.taxButton.text")); // NOI18N
+        taxButton.setToolTipText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.taxButton.toolTipText")); // NOI18N
+        taxButton.setFocusable(false);
+        taxButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        taxButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        taxButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taxButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(taxButton);
+
+        unitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/unit24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(unitButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.unitButton.text")); // NOI18N
+        unitButton.setToolTipText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.unitButton.toolTipText")); // NOI18N
+        unitButton.setFocusable(false);
+        unitButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        unitButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        unitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unitButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(unitButton);
+
+        formPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.formPanel.border.title"))); // NOI18N
+
+        nameField.setDocument(new JTextFieldLimitedDocument(150));
+        nameField.setFont(Fonts.BIG_INPUT);
+        nameField.setText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.nameField.text")); // NOI18N
+
+        descField.setDocument(new JTextFieldLimitedDocument(50));
+        descField.setText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.descField.text")); // NOI18N
+
+        priceField.setDocument(new JTextFieldLimitedDocument(50));
+        priceField.setFont(Fonts.BIG_INPUT);
+        priceField.setText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.priceField.text")); // NOI18N
+
+        priceBoughtField.setDocument(new JTextFieldLimitedDocument(50));
+        priceBoughtField.setFont(Fonts.BIG_INPUT);
+        priceBoughtField.setText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.priceBoughtField.text")); // NOI18N
+
+        manufComboBox.setFont(Fonts.BIG_INPUT);
+        manufComboBox.setModel(new DefaultComboBoxModel(AquamarinFacade.getDefault().findAllManufs().toArray()));
+
+        vipCheckBox.setFont(Fonts.BIG_INPUT);
+        org.openide.awt.Mnemonics.setLocalizedText(vipCheckBox, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.vipCheckBox.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel1.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel2.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel3.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel5.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel6.text")); // NOI18N
+
+        okButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/ok24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(okButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.okButton.text")); // NOI18N
+        okButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okButtonActionPerformed(evt);
+            }
+        });
+
+        codeField.setFont(Fonts.BIG_INPUT);
+        codeField.setText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.codeField.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel7.text")); // NOI18N
+
+        codeManufField.setFont(Fonts.BIG_INPUT);
+        codeManufField.setText(org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.codeManufField.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel4.text")); // NOI18N
+
+        taxRateComboBox.setFont(Fonts.BIG_INPUT);
+        taxRateComboBox.setModel(new DefaultComboBoxModel(AquamarinFacade.getDefault().findAllTaxRates().toArray()));
+
+        unitComboBox.setFont(Fonts.BIG_INPUT);
+        unitComboBox.setModel(new DefaultComboBoxModel(AquamarinFacade.getDefault().findAllUnits().toArray()));
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel8.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel9, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.jLabel9.text")); // NOI18N
+
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/magnetpwns/presentation/clear24.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(cancelButton, org.openide.util.NbBundle.getMessage(ProductTopComponent.class, "ProductTopComponent.cancelButton.text")); // NOI18N
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formPanelLayout = new javax.swing.GroupLayout(formPanel);
+        formPanel.setLayout(formPanelLayout);
+        formPanelLayout.setHorizontalGroup(
+            formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formPanelLayout.createSequentialGroup()
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(codeManufField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(priceBoughtField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(manufComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(formPanelLayout.createSequentialGroup()
+                                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(taxRateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(unitComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)))
+                            .addGroup(formPanelLayout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(vipCheckBox))))
+                    .addGroup(formPanelLayout.createSequentialGroup()
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(descField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(okButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cancelButton)
+                .addContainerGap())
+        );
+        formPanelLayout.setVerticalGroup(
+            formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formPanelLayout.createSequentialGroup()
+                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formPanelLayout.createSequentialGroup()
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, formPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(priceBoughtField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, formPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, formPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameField)))
+                        .addGap(18, 18, 18)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formPanelLayout.createSequentialGroup()
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(formPanelLayout.createSequentialGroup()
+                                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(manufComboBox)
+                                    .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(taxRateComboBox)
+                                        .addComponent(unitComboBox))))
+                            .addGroup(formPanelLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(vipCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(okButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(formPanelLayout.createSequentialGroup()
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(formPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(codeManufField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(descField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        productTable.setAutoCreateRowSorter(true);
+        productTable.setModel(productTableModel = new ProductTableModel(AquamarinFacade.getDefault().findAllProducts()));
+        jScrollPane1.setViewportView(productTable);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(mainToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(641, 641, 641))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(formPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(formPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        formPanel.setVisible(false);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void taxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taxButtonActionPerformed
+        new TaxRateEditDialog().show();
+        taxRateComboBox.setModel(new DefaultComboBoxModel(AquamarinFacade.getDefault().findAllTaxRates().toArray()));
+    }//GEN-LAST:event_taxButtonActionPerformed
+
+    private void manufButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manufButtonActionPerformed
+        new ManufacturerEditDialog().show();
+        manufComboBox.setModel(new DefaultComboBoxModel(AquamarinFacade.getDefault().findAllManufs().toArray()));
+    }//GEN-LAST:event_manufButtonActionPerformed
+
+    private void unitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitButtonActionPerformed
+        new UnitEditDialog().show();
+        unitComboBox.setModel(new DefaultComboBoxModel(AquamarinFacade.getDefault().findAllUnits().toArray()));
+    }//GEN-LAST:event_unitButtonActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        prepareForm(EditMode.ADD);
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+        BigDecimal price;
+        BigDecimal boughtPrice;
+        
+        try {
+            price = new BigDecimal(priceField.getText());
+        } catch (NumberFormatException e) {
+            price = BigDecimal.ZERO;
+        }
+        
+        try {
+            boughtPrice = new BigDecimal(priceBoughtField.getText());
+        } catch (NumberFormatException e) {
+            boughtPrice = BigDecimal.ZERO;
+        }
+        
+        Product p = new Product(
+                new ProductId(editId),
+                codeField.getText(), 
+                codeManufField.getText(), 
+                nameField.getText(),
+                descField.getText(), 
+                price,
+                boughtPrice,
+                (Manufacturer) manufComboBox.getSelectedItem(),
+                (TaxRate) taxRateComboBox.getSelectedItem(), 
+                (Unit) unitComboBox.getSelectedItem());
+        switch (editMode) {
+            case ADD:
+                if ((p = AquamarinFacade.getDefault().addProduct(p)) != null) {
+                    productTableModel.add(p);
+                }
+                break;
+            case EDIT:
+                if (AquamarinFacade.getDefault().updateProduct(p)) {
+                    productTableModel.update(p);
+                }
+                break;
+                
+        }
+        formPanel.setVisible(false);
+        editMode = EditMode.NONE;
+    }//GEN-LAST:event_okButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        formPanel.setVisible(false);
+        editMode = EditMode.NONE;
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        prepareForm(EditMode.EDIT);
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        int result = JOptionPane.showConfirmDialog(this, NbBundle.getMessage(AddressBookTopComponent.class, "CTL_DeleteConfirmation"), NbBundle.getMessage(AddressBookTopComponent.class, "CTL_ConfirmAction"), JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            int realRow = productTable.convertRowIndexToModel(productTable.getSelectedRow());
+            if (AquamarinFacade.getDefault().deleteProduct(productTableModel.get(realRow))) {
+                productTableModel.remove(realRow); // TODO: Multiple deletion
+            }
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filterButtonActionPerformed
+
+    private void addPriceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPriceButtonActionPerformed
+        try {
+            BigDecimal newPrice = RequestDialog.showBigDecimalInputDialog();
+            AquamarinFacade.getDefault().addProductPrice(getSelectedProduct(), newPrice);
+            JOptionPane.showMessageDialog(this, "Cena přidána");
+        } catch (AquamarinException ex) {
+            Exceptions.printStackTrace(ex);
+        } catch (CancelException ex) {}
+        
+    }//GEN-LAST:event_addPriceButtonActionPerformed
+
+    private void viewPriceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPriceButtonActionPerformed
+        try {
+            new PriceViewDialog(getSelectedProduct()).show();
+        } catch (AquamarinException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+    }//GEN-LAST:event_viewPriceButtonActionPerformed
+
+    Product getSelectedProduct() {
+        return productTableModel.get(productTable.convertRowIndexToModel(productTable.getSelectedRow()));
+    }
+    
+    private void prepareForm(EditMode mode) {
+        editMode = mode;
+        ((TitledBorder) formPanel.getBorder()).setTitle(editMode.getLabel());
+        formPanel.setVisible(true);
+        formPanel.repaint();
+        codeField.requestFocusInWindow();
+        
+        switch (editMode) {
+            case ADD:
+                resetForm();
+                editId = 0;
+                break;
+            case EDIT:
+                Product p = getSelectedProduct();
+                editId = p.getId().getId();
+                codeField.setText(p.getCode());
+                codeManufField.setText(p.getCodeManuf());
+                nameField.setText(p.getName());
+                priceField.setText(p.getPrice().toPlainString());
+                priceBoughtField.setText(p.getPriceBought().toPlainString());
+                descField.setText(p.getDescription());
+                break;
+            case FILTER:
+                resetForm();
+                break;
+        }
+    }
+    
+    private void resetForm() {
+        codeField.setText("");
+        codeManufField.setText("");
+        nameField.setText("");
+        priceField.setText("");
+        priceBoughtField.setText("");
+        descField.setText("");
+    }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
+    private javax.swing.JButton addPriceButton;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JTextField codeField;
+    private javax.swing.JTextField codeManufField;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField descField;
+    private javax.swing.JButton editButton;
+    private javax.swing.JButton filterButton;
+    private javax.swing.JPanel formPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar mainToolBar;
+    private javax.swing.JButton manufButton;
+    private javax.swing.JComboBox manufComboBox;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JButton okButton;
+    private javax.swing.JTextField priceBoughtField;
+    private javax.swing.JTextField priceField;
+    private javax.swing.JTable productTable;
+    private javax.swing.JButton taxButton;
+    private javax.swing.JComboBox taxRateComboBox;
+    private javax.swing.JButton unitButton;
+    private javax.swing.JComboBox unitComboBox;
+    private javax.swing.JButton viewPriceButton;
+    private javax.swing.JCheckBox vipCheckBox;
+    // End of variables declaration//GEN-END:variables
+    @Override
+    public void componentOpened() {
+        // TODO add custom code on component opening
+    }
+
+    @Override
+    public void componentClosed() {
+        // TODO add custom code on component closing
+    }
+
+    void writeProperties(java.util.Properties p) {
+        // better to version settings since initial version as advocated at
+        // http://wiki.apidesign.org/wiki/PropertyFiles
+        p.setProperty("version", "1.0");
+        // TODO store your settings
+    }
+
+    void readProperties(java.util.Properties p) {
+        String version = p.getProperty("version");
+        // TODO read your settings according to their version
+    }
+}

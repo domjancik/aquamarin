@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: com/magnetpwns/format/Bundle.propert
+ ies
+OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Implementation-Version: 1.0-20120304
+OpenIDE-Module-Build-Version: 201203041455
+OpenIDE-Module: com.magnetpwns.format
+OpenIDE-Module-Public-Packages: com.magnetpwns.format.*
+OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
+OpenIDE-Module-Display-Category: com.magnetpwns
+OpenIDE-Module-Name: format
+OpenIDE-Module-Short-Description: <undefined>
+OpenIDE-Module-Long-Description: <undefined>
+OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
+ n/1 > 1.9.1
+

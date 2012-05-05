@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="com.magnetpwns.derbydb">
+    <module_version install_time="1336246291510" last="true" origin="installer" specification_version="1.0">
+        <file crc="122268459" name="config/Modules/com-magnetpwns-derbydb.xml"/>
+        <file crc="2561015503" name="modules/com-magnetpwns-derbydb.jar"/>
+        <file crc="2734618368" name="update_tracking/com-magnetpwns-derbydb.xml"/>
+    </module_version>
+</module>

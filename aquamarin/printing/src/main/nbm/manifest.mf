@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Install: com/magnetpwns/printing/Installer.class
+OpenIDE-Module-Localizing-Bundle: com/magnetpwns/printing/Bundle.properties
+OpenIDE-Module-Layer: com/magnetpwns/printing/layer.xml
+OpenIDE-Module-Requires: org.openide.windows.WindowManager

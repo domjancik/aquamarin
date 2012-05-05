@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="com.magnetpwns.format">
+    <module_version install_time="1330872917164" last="true" origin="installer" specification_version="1.0">
+        <file crc="442756554" name="config/Modules/com-magnetpwns-format.xml"/>
+        <file crc="1656966635" name="modules/com-magnetpwns-format.jar"/>
+        <file crc="1224201755" name="update_tracking/com-magnetpwns-format.xml"/>
+    </module_version>
+</module>

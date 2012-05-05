@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN"
+                            "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Print">
+            <file name="com-magnetpwns-printing-CalibrationPrintAction.instance">
+                <!--com.magnetpwns.printing.CalibrationPrintAction-->
+                <attr
+                    bundlevalue="com.magnetpwns.printing.Bundle#CTL_CalibrationPrintAction" name="displayName"/>
+                <attr
+                    methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
+                <attr name="delegate" newvalue="com.magnetpwns.printing.CalibrationPrintAction"/>
+                <attr boolvalue="false" name="noIconInMenu"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="OptionsDialog">
+        <folder name="Printing">
+            <file name="com-magnetpwns-printing-OwnerOptionsPanelController.instance">
+                <!--com.magnetpwns.printing.OwnerOptionsPanelController-->
+                <attr
+                    methodvalue="org.netbeans.spi.options.AdvancedOption.createSubCategory" name="instanceCreate"/>
+                <attr name="controller" newvalue="com.magnetpwns.printing.OwnerOptionsPanelController"/>
+                <attr
+                    bundlevalue="com.magnetpwns.printing.Bundle#AdvancedOption_DisplayName_Owner" name="displayName"/>
+                <attr
+                    bundlevalue="com.magnetpwns.printing.Bundle#AdvancedOption_Keywords_Owner" name="keywords"/>
+                <attr name="keywordsCategory" stringvalue="Printing/Owner"/>
+            </file>
+            <file name="com-magnetpwns-printing-StickerlayoutOptionsPanelController.instance">
+                <!--com.magnetpwns.printing.StickerlayoutOptionsPanelController-->
+                <attr
+                    methodvalue="org.netbeans.spi.options.AdvancedOption.createSubCategory" name="instanceCreate"/>
+                <attr name="controller" newvalue="com.magnetpwns.printing.StickerlayoutOptionsPanelController"/>
+                <attr
+                    bundlevalue="com.magnetpwns.printing.Bundle#AdvancedOption_DisplayName_Stickerlayout" name="displayName"/>
+                <attr
+                    bundlevalue="com.magnetpwns.printing.Bundle#AdvancedOption_Keywords_Stickerlayout" name="keywords"/>
+                <attr name="keywordsCategory" stringvalue="Printing/Stickerlayout"/>
+            </file>
+            <file name="com-magnetpwns-printing-GeneralOptionsPanelController.instance">
+                <!--com.magnetpwns.printing.GeneralOptionsPanelController-->
+                <attr
+                    methodvalue="org.netbeans.spi.options.AdvancedOption.createSubCategory" name="instanceCreate"/>
+                <attr name="controller" newvalue="com.magnetpwns.printing.GeneralOptionsPanelController"/>
+                <attr
+                    bundlevalue="com.magnetpwns.printing.Bundle#AdvancedOption_DisplayName_General" name="displayName"/>
+                <attr
+                    bundlevalue="com.magnetpwns.printing.Bundle#AdvancedOption_Keywords_General" name="keywords"/>
+                <attr name="keywordsCategory" stringvalue="Printing/General"/>
+            </file>
+            <!--com.magnetpwns.printing-->
+            <attr intvalue="0" name="position"/>
+        </folder>
+        <file name="Printing.instance">
+            <!--com.magnetpwns.printing-->
+            <attr
+                methodvalue="org.netbeans.spi.options.OptionsCategory.createCategory" name="instanceCreate"/>
+            <attr name="advancedOptionsFolder" stringvalue="OptionsDialog/Printing"/>
+            <attr
+                bundlevalue="com.magnetpwns.printing.Bundle#OptionsCategory_Name_Printing" name="categoryName"/>
+            <attr name="iconBase" stringvalue="com/magnetpwns/printing/printer32.png"/>
+            <attr
+                bundlevalue="com.magnetpwns.printing.Bundle#OptionsCategory_Keywords_Printing" name="keywords"/>
+            <attr name="keywordsCategory" stringvalue="Printing"/>
+        </file>
+    </folder>
+</filesystem>

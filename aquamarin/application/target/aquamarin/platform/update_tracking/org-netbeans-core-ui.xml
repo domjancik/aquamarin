@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="org.netbeans.core.ui/1">
-    <module_version install_time="1329946555746" last="true" origin="installer" specification_version="1.29.1">
+    <module_version install_time="1340647569455" last="true" origin="installer" specification_version="1.29.1">
         <file crc="3186674130" name="config/Modules/org-netbeans-core-ui.xml"/>
         <file crc="2152120792" name="modules/locale/org-netbeans-core-ui_ja.jar"/>
         <file crc="1248981809" name="modules/locale/org-netbeans-core-ui_pt_BR.jar"/>

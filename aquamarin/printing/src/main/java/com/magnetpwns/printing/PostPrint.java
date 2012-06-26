@@ -94,8 +94,14 @@ public class PostPrint implements Printable {
                     switch(j) {
                         case 2:
                             Client client = clients.get(k);
+                            String name;
+                            if (client.getTitleShort().length() > 0) {
+                                name = client.getTitleShort();
+                            } else {
+                                name = client.getTitle();
+                            }
                             String[] clientLines = {
-                               client.getTitleShort(),
+                               name,
                                client.getStreet(),
                                client.getCity().getParsedPostcode() + " " + client.getCity().getName()
                             } ;

@@ -7,6 +7,7 @@ package com.magnetpwns.derbydb;
 import com.magnetpwns.derbydb.impl.ClientDAODerby;
 import com.magnetpwns.derbydb.impl.DerbyConnection;
 import com.magnetpwns.derbydb.impl.InvoiceDAODerby;
+import org.openide.util.NbPreferences;
 
 final class DatabasePanel extends javax.swing.JPanel {
 
@@ -33,6 +34,9 @@ final class DatabasePanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         updateInvoiceButton = new javax.swing.JButton();
         updateClientButton = new javax.swing.JButton();
+        locationLabel = new javax.swing.JLabel();
+        locationField = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
 
         org.openide.awt.Mnemonics.setLocalizedText(consoleLabel, org.openide.util.NbBundle.getMessage(DatabasePanel.class, "DatabasePanel.consoleLabel.text")); // NOI18N
 
@@ -61,6 +65,10 @@ final class DatabasePanel extends javax.swing.JPanel {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(locationLabel, org.openide.util.NbBundle.getMessage(DatabasePanel.class, "DatabasePanel.locationLabel.text")); // NOI18N
+
+        locationField.setText(org.openide.util.NbBundle.getMessage(DatabasePanel.class, "DatabasePanel.locationField.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,23 +76,34 @@ final class DatabasePanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(executeButton))
                     .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(locationLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(locationField))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(consoleLabel)
                             .addComponent(updateInvoiceButton)
                             .addComponent(updateClientButton))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 99, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(locationLabel)
+                    .addComponent(locationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(consoleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -96,7 +115,7 @@ final class DatabasePanel extends javax.swing.JPanel {
                 .addComponent(updateInvoiceButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(updateClientButton)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,6 +141,8 @@ final class DatabasePanel extends javax.swing.JPanel {
         // someCheckBox.setSelected(NbPreferences.forModule(DatabasePanel.class).getBoolean("someFlag", false));
         // or:
         // someTextField.setText(SomeSystemOption.getDefault().getSomeStringProperty());
+        
+        locationField.setText(NbPreferences.forModule(DerbyConnection.class).get("dblocation", DerbyConnection.DEFAULT));
     }
 
     void store() {
@@ -132,6 +153,8 @@ final class DatabasePanel extends javax.swing.JPanel {
         // NbPreferences.forModule(DatabasePanel.class).putBoolean("someFlag", someCheckBox.isSelected());
         // or:
         // SomeSystemOption.getDefault().setSomeStringProperty(someTextField.getText());
+        
+        NbPreferences.forModule(DerbyConnection.class).put("dblocation", locationField.getText());
     }
 
     boolean valid() {
@@ -143,6 +166,9 @@ final class DatabasePanel extends javax.swing.JPanel {
     private javax.swing.JButton executeButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField locationField;
+    private javax.swing.JLabel locationLabel;
     private javax.swing.JTextArea queryArea;
     private javax.swing.JButton updateClientButton;
     private javax.swing.JButton updateInvoiceButton;

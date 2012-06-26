@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.openide.util.NbPreferences;
 
 /**
  *
@@ -30,7 +31,8 @@ public class DerbyConnection {
 
     private DerbyConnection() {
         try {            
-            String dbURL = "jdbc:derby:" + DEFAULT + "/" + DBNAME + ";create=true";
+            String location = NbPreferences.forModule(DerbyConnection.class).get("dblocation", DerbyConnection.DEFAULT);
+            String dbURL = "jdbc:derby:" + location + "/" + DBNAME + ";create=true";
             connection = DriverManager.getConnection(dbURL);
             DatabaseMetaData m = connection.getMetaData();
             

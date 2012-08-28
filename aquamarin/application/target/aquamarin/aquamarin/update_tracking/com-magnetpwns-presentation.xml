@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="com.magnetpwns.presentation">
-    <module_version install_time="1340647578104" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1346164235046" last="true" origin="installer" specification_version="1.0">
         <file crc="4289739421" name="config/Modules/com-magnetpwns-presentation.xml"/>
-        <file crc="2772621363" name="modules/com-magnetpwns-presentation.jar"/>
+        <file crc="3676955700" name="modules/com-magnetpwns-presentation.jar"/>
         <file crc="4684788" name="modules/ext/org.swinglabs.swingx/swingx-all-1.6.3.jar"/>
+        <file crc="2571479058" name="update_tracking/com-magnetpwns-presentation.xml"/>
     </module_version>
 </module>

@@ -3,8 +3,8 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/integration/Bundle.pr
  operties
 OpenIDE-Module-Layer: com/magnetpwns/integration/layer.xml
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20120307
-OpenIDE-Module-Build-Version: 201203070758
+OpenIDE-Module-Implementation-Version: 1.0-20120828
+OpenIDE-Module-Build-Version: 201208281422
 OpenIDE-Module: com.magnetpwns.integration
 OpenIDE-Module-Public-Packages: com.magnetpwns.integration.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

@@ -58,12 +58,18 @@ public class Invoice extends ProformaInvoice {
     }
     
     public boolean isCancelled() {
+        // TODO null date on uncancelled invoices
+        
         Calendar c = Calendar.getInstance();
         c.setTime(cancelledDate);
         return c.get(Calendar.YEAR) > 1980;
     }
 
     public BigDecimal getUnpaid() {
+        if (isCancelled()) {
+            return BigDecimal.ZERO;
+        }
+        
         return unpaid;
     }
 

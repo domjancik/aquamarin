@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="com.magnetpwns.branding">
-    <module_version install_time="1340647577639" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1346160501232" last="true" origin="installer" specification_version="1.0">
         <file crc="2756663983" name="config/Modules/com-magnetpwns-branding.xml"/>
         <file crc="227006339" name="core/locale/core_aquamarin.jar"/>
         <file crc="1112682628" name="modules/com-magnetpwns-branding.jar"/>

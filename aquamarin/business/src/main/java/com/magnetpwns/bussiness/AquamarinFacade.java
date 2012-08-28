@@ -7,6 +7,7 @@ package com.magnetpwns.bussiness;
 import com.magnetpwns.bussiness.impl.AquamarinFacadeImpl;
 import com.magnetpwns.model.*;
 import com.magnetpwns.model.exception.AquamarinException;
+import com.magnetpwns.model.exception.NoResultException;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
@@ -87,6 +88,7 @@ public abstract class AquamarinFacade {
     public abstract StockTransfer addStockTransfer(StockTransfer st);
     public abstract Collection<StockTransfer> findStockTransfers();
     public abstract Collection<StockTransfer> findStockTransfersByYear(int year);
+    public abstract Collection<StockTransfer> findStockTransfersByYearProduct(int year, Product p) throws NoResultException;
     public abstract Collection<Integer> findStockTransferYears();
     public abstract StockTransfer loadStockTransfer(StockTransfer st);
     

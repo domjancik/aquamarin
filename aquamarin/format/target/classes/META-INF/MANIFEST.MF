@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 OpenIDE-Module-Localizing-Bundle: com/magnetpwns/format/Bundle.propert
  ies
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20120304
-OpenIDE-Module-Build-Version: 201203041455
+OpenIDE-Module-Implementation-Version: 1.0-20120828
+OpenIDE-Module-Build-Version: 201208281348
 OpenIDE-Module: com.magnetpwns.format
 OpenIDE-Module-Public-Packages: com.magnetpwns.format.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

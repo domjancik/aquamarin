@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="org.netbeans.modules.core.kit">
-    <module_version install_time="1340647571449" last="true" origin="installer" specification_version="1.14.1">
+    <module_version install_time="1346160498362" last="true" origin="installer" specification_version="1.14.1">
         <file crc="137587975" name="VERSION.txt"/>
         <file crc="2391224559" name="config/Modules/org-netbeans-modules-core-kit.xml"/>
         <file crc="2680828459" name="modules/locale/org-netbeans-modules-core-kit_ja.jar"/>

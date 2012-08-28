@@ -8,6 +8,7 @@ import com.magnetpwns.bussiness.AquamarinFacade;
 import com.magnetpwns.integration.DAOFactory;
 import com.magnetpwns.model.*;
 import com.magnetpwns.model.exception.AquamarinException;
+import com.magnetpwns.model.exception.NoResultException;
 import com.magnetpwns.model.exception.OutOfBoundsException;
 import java.math.BigDecimal;
 import java.util.*;
@@ -358,6 +359,11 @@ public class AquamarinFacadeImpl extends AquamarinFacade {
     @Override
     public void loadProduct(Product p) throws AquamarinException {
         DAOFactory.getDefault().createProductDAO().load(p);
+    }
+
+    @Override
+    public Collection<StockTransfer> findStockTransfersByYearProduct(int year, Product p) throws NoResultException {
+        return DAOFactory.getDefault().createStockTransferDAO().findByYearProduct(year, p);
     }
     
 }

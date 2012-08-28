@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.magnetpwns.presentation.dialogs;
+package com.magnetpwns.presentation.dialogs.edit;
 
 import com.magnetpwns.presentation.dialogs.edit.FacadeMap;
 import com.magnetpwns.presentation.dialogs.edit.AbstractEditDialog;
@@ -17,6 +17,7 @@ import java.util.Collection;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
+import org.openide.util.NbBundle;
 
 /**
  *
@@ -29,7 +30,7 @@ public class CityEditDialog extends AbstractEditDialog<City> {
     private JComboBox countryComboBox;
 
     public CityEditDialog() {
-        super("City editor");
+        super(NbBundle.getMessage(CityEditDialog.class, "CTL_CityEditor"));
     }
     
     @Override

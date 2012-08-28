@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="org.netbeans.bootstrap/1">
-    <module_version install_time="1340647578789" last="true" origin="installer" specification_version="2.44.2">
+    <module_version install_time="1346160501817" last="true" origin="installer" specification_version="2.44.2">
         <file crc="4203900462" name="lib/boot.jar"/>
         <file crc="2459419991" name="lib/locale/boot_ja.jar"/>
         <file crc="3105776630" name="lib/locale/boot_pt_BR.jar"/>

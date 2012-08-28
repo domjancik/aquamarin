@@ -13,6 +13,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import org.openide.util.NbBundle;
 
 /**
  *
@@ -25,8 +26,16 @@ public class StockTransferHistoryOpenDialog extends AbstractOkDialog {
 
     private StockTransfer stockTransfer;
     
+    private static String getTitle(StockTransfer stockTransfer) {
+        String title = NbBundle.getMessage(StockTransferHistoryOpenDialog.class, "CTL_StockTransferDetail") + " ";
+        if (stockTransfer.getSourceStock() != null) {
+            title += stockTransfer.getSourceStock().toString() + "->";
+        }
+        return title + stockTransfer.getDestinationStock().toString();
+    }
+    
     public StockTransferHistoryOpenDialog(StockTransfer stockTransfer) {
-        super("Stock transfer detail"); // TODO: Localize
+        super(getTitle(stockTransfer));
         this.stockTransfer = stockTransfer;
         countedProductTableModel = new CountedProductTableModel(stockTransfer.getItems());
     }

@@ -3,8 +3,8 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/derbydb/Bundle.proper
  ties
 OpenIDE-Module-Layer: com/magnetpwns/derbydb/layer.xml
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20120625
-OpenIDE-Module-Build-Version: 201206251803
+OpenIDE-Module-Implementation-Version: 1.0-20120828
+OpenIDE-Module-Build-Version: 201208281422
 OpenIDE-Module: com.magnetpwns.derbydb
 OpenIDE-Module-Public-Packages: com.magnetpwns.derbydb.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1

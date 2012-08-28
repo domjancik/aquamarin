@@ -6,6 +6,8 @@ package com.magnetpwns.derbydb.impl;
 
 import com.magnetpwns.integration.StockTransferDAO;
 import com.magnetpwns.model.*;
+import com.magnetpwns.model.exception.AquamarinException;
+import com.magnetpwns.model.exception.NoResultException;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -22,6 +24,7 @@ public class StockTransferDAODerby implements StockTransferDAO {
     
     private PreparedStatement findPs;
     private PreparedStatement findByYearPs;
+    private PreparedStatement findByYearProductPs;
     private PreparedStatement findYearsPs;
     private PreparedStatement addPs;
     private PreparedStatement addItemPs;
@@ -42,6 +45,8 @@ public class StockTransferDAODerby implements StockTransferDAO {
         try {
             findPs = connection.prepareStatement("SELECT * FROM STOCKTRANSFER ORDER BY transfer_date DESC");
             findByYearPs = connection.prepareStatement("SELECT * FROM STOCKTRANSFER WHERE YEAR(transfer_date) = ? ORDER BY transfer_date DESC");
+            findByYearProductPs = connection.prepareStatement(
+                    "SELECT * FROM STOCKTRANSFER S JOIN STOCKTRANSFERITEM I ON (S.ID = I.TRANSFER_ID) WHERE YEAR(transfer_date) = ? AND PRODUCT_ID = ? ORDER BY transfer_date DESC");
             findYearsPs = connection.prepareStatement("SELECT DISTINCT YEAR(transfer_date) FROM STOCKTRANSFER");
             addPs = connection.prepareStatement("INSERT INTO STOCKTRANSFER VALUES (DEFAULT, ?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
             addItemPs = connection.prepareStatement("INSERT INTO STOCKTRANSFERITEM VALUES (?, ?, ?)");
@@ -205,6 +210,26 @@ public class StockTransferDAODerby implements StockTransferDAO {
             Logger.getLogger(StockTransferDAODerby.class.getName()).log(Level.SEVERE, null, ex);
         }
         return years;
+    }
+
+    @Override
+    public Collection<StockTransfer> findByYearProduct(int year, Product p) throws NoResultException {
+        ArrayList<StockTransfer> items = new ArrayList<StockTransfer>();
+        try {
+            findByYearProductPs.setInt(1, year);
+            findByYearProductPs.setInt(2, p.getId().getId());
+            ResultSet rs = findByYearProductPs.executeQuery();
+            while (rs.next()) {
+                items.add(getStockTransferFromResult(rs));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StockTransferDAODerby.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (items.isEmpty())
+            throw new NoResultException();
+        
+        return items;
     }
 
     

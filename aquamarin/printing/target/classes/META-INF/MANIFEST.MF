@@ -6,13 +6,15 @@ OpenIDE-Module-Layer: com/magnetpwns/printing/layer.xml
 OpenIDE-Module-Requires: org.openide.windows.WindowManager
 OpenIDE-Module-Specification-Version: 1.0
 OpenIDE-Module-Implementation-Version: 1.0-20121030
-OpenIDE-Module-Build-Version: 201210300958
+OpenIDE-Module-Build-Version: 201210301040
 OpenIDE-Module: com.magnetpwns.printing
 OpenIDE-Module-Public-Packages: com.magnetpwns.printing.*
 OpenIDE-Module-Display-Category: com.magnetpwns
 OpenIDE-Module-Name: printing NetBeans Module
 OpenIDE-Module-Short-Description: <undefined>
 OpenIDE-Module-Long-Description: <undefined>
+Class-Path: ext/org.netbeans.external/org-apache-commons-lang-RELEASE7
+ 2-BETA.jar
 OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
  n/1 > 1.11.1, org.openide.windows > 6.48.1, org.openide.util > 8.19.1
  , org.openide.util.lookup > 8.11.1, org.openide.awt > 7.39.1, org.net

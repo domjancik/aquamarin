@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="com.magnetpwns.printing">
-    <module_version install_time="1351591121025" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1351593630494" last="true" origin="installer" specification_version="1.0">
         <file crc="316390558" name="config/Modules/com-magnetpwns-printing.xml"/>
-        <file crc="1749363641" name="modules/com-magnetpwns-printing.jar"/>
-        <file crc="3611241277" name="update_tracking/com-magnetpwns-printing.xml"/>
+        <file crc="2121423440" name="modules/com-magnetpwns-printing.jar"/>
+        <file crc="136195487" name="modules/ext/org.netbeans.external/org-apache-commons-lang-RELEASE72-BETA.jar"/>
+        <file crc="4040796021" name="update_tracking/com-magnetpwns-printing.xml"/>
     </module_version>
 </module>

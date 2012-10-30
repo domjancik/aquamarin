@@ -90,6 +90,11 @@
             <artifactId>business</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>org-apache-commons-lang</artifactId>
+            <version>RELEASE72-BETA</version>
+        </dependency>
     </dependencies>
 
     <build>

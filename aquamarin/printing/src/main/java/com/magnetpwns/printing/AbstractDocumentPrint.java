@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import org.apache.commons.lang.WordUtils;
 import org.openide.util.NbPreferences;
 
 /**
@@ -216,8 +217,12 @@ public abstract class AbstractDocumentPrint<T extends Document> implements Print
     }
     
     private int drawNote(Graphics g, int y, int width) {
+        
+        String wrappedNote = WordUtils.wrap("Poznámka: " + document.getNote(), 90);
+        String[] noteLines = wrappedNote.split("\n");
+        
         Dimension d = GraphicsOperation.drawMultiline(0 + TEXT_PADDING, y + TEXT_PADDING,
-                new String[] {"Poznámka: " + document.getNote()}, g);
+                noteLines, g);
         int height = d.height + TEXT_PADDING * 2;
         g.drawRoundRect(0, y, width, height, RECT_ROUNDNESS, RECT_ROUNDNESS);
         return height;

@@ -28,9 +28,12 @@ public class SumViewDialog extends AbstractOkDialog {
         super("Součet vybraných");
         
         for (Document d : documents) {
-            totalSum += d.getSavedTotal();
-            if (d instanceof Invoice) {
-                unpaidSum = unpaidSum.add(((Invoice) d).getUnpaid());
+            if (d instanceof Invoice) {    
+                Invoice i = (Invoice) d;
+                if (!i.isCancelled()) {
+                    totalSum += d.getSavedTotal();
+                    unpaidSum = unpaidSum.add(((Invoice) d).getUnpaid());
+                }
             }
         }
     }

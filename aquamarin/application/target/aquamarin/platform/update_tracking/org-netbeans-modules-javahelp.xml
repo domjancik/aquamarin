@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="org.netbeans.modules.javahelp/1">
-    <module_version install_time="1346160498654" last="true" origin="installer" specification_version="2.24.1">
+    <module_version install_time="1349633382303" last="true" origin="installer" specification_version="2.24.1">
         <file crc="3126457443" name="config/Modules/org-netbeans-modules-javahelp.xml"/>
         <file crc="2051790136" name="modules/ext/jhall-2.0_05.jar"/>
         <file crc="2689453293" name="modules/locale/org-netbeans-modules-javahelp_ja.jar"/>

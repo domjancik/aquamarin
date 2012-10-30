@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="com.magnetpwns.component">
-    <module_version install_time="1346161723114" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1349633389999" last="true" origin="installer" specification_version="1.0">
         <file crc="1590300963" name="config/Modules/com-magnetpwns-component.xml"/>
         <file crc="908055376" name="modules/com-magnetpwns-component.jar"/>
         <file crc="2540234620" name="update_tracking/com-magnetpwns-component.xml"/>

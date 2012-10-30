@@ -67,7 +67,7 @@ public abstract class AbstractDocumentPrint<T extends Document> implements Print
         int yLeft = 0;
         int yRight = 0;
         
-        drawSupplierBox(graphics, 0, SUPBOX_Y, halfWidth, SUPBOX_HEIGHT);
+        drawSupplierBox(graphics, 0, SUPBOX_Y, halfWidth - 5, SUPBOX_HEIGHT);
         
         yLeft += SUPBOX_Y + SUPBOX_HEIGHT + SPACE;
         
@@ -239,9 +239,10 @@ public abstract class AbstractDocumentPrint<T extends Document> implements Print
         return new String[] {
             "\\sIČ: " + NbPreferences.forModule(OwnerPanel.class).get("ico", "") + " DIČ: " + NbPreferences.forModule(OwnerPanel.class).get("dic", ""),
             "\\t" + NbPreferences.forModule(OwnerPanel.class).get("title", ""),
+            NbPreferences.forModule(OwnerPanel.class).get("subtitle", ""),
             NbPreferences.forModule(OwnerPanel.class).get("address", ""),
             NbPreferences.forModule(OwnerPanel.class).get("city", ""),
-            "",
+//            "",
             "\\S" + NbPreferences.forModule(OwnerPanel.class).get("bank", ""),
             "\\S" + NbPreferences.forModule(OwnerPanel.class).get("iban", "")
         };

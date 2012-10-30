@@ -74,7 +74,7 @@ public class ProformaPrint extends AbstractDocumentPrint<Invoice> {
                 + di.getDiscountedTaxedProductPrice().toPlainString(),
             di.getDiscountedTotal().toPlainString() + "\n"
                 + di.getDiscountedTaxedTotal().toPlainString(),
-            di.getDiscount().toPlainString(),
+            di.getDiscountPercentString(),
         };
     }
 

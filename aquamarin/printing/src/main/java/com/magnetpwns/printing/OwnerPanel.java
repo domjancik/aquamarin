@@ -38,6 +38,8 @@ final class OwnerPanel extends javax.swing.JPanel {
         dicField = new javax.swing.JTextField();
         bankField = new javax.swing.JTextField();
         ibanField = new javax.swing.JTextField();
+        subtitleField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(OwnerPanel.class, "OwnerPanel.jLabel1.text")); // NOI18N
 
@@ -67,6 +69,10 @@ final class OwnerPanel extends javax.swing.JPanel {
 
         ibanField.setText(org.openide.util.NbBundle.getMessage(OwnerPanel.class, "OwnerPanel.ibanField.text")); // NOI18N
 
+        subtitleField.setText(org.openide.util.NbBundle.getMessage(OwnerPanel.class, "OwnerPanel.subtitleField.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(OwnerPanel.class, "OwnerPanel.jLabel8.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,9 +86,11 @@ final class OwnerPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(subtitleField)
                     .addComponent(titleField)
                     .addComponent(addressField)
                     .addComponent(cityField)
@@ -99,6 +107,10 @@ final class OwnerPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(subtitleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -123,12 +135,13 @@ final class OwnerPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(ibanField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     void load() {
         titleField.setText(NbPreferences.forModule(OwnerPanel.class).get("title", ""));
+        subtitleField.setText(NbPreferences.forModule(OwnerPanel.class).get("subtitle", ""));
         addressField.setText(NbPreferences.forModule(OwnerPanel.class).get("address", ""));
         cityField.setText(NbPreferences.forModule(OwnerPanel.class).get("city", ""));
         icoField.setText(NbPreferences.forModule(OwnerPanel.class).get("ico", ""));
@@ -139,6 +152,7 @@ final class OwnerPanel extends javax.swing.JPanel {
 
     void store() {
         NbPreferences.forModule(OwnerPanel.class).put("title", titleField.getText());
+        NbPreferences.forModule(OwnerPanel.class).put("subtitle", subtitleField.getText());
         NbPreferences.forModule(OwnerPanel.class).put("address", addressField.getText());
         NbPreferences.forModule(OwnerPanel.class).put("city", cityField.getText());
         NbPreferences.forModule(OwnerPanel.class).put("ico", icoField.getText());
@@ -165,6 +179,8 @@ final class OwnerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField subtitleField;
     private javax.swing.JTextField titleField;
     // End of variables declaration//GEN-END:variables
 }

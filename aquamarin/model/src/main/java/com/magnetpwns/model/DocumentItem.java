@@ -32,6 +32,10 @@ public class DocumentItem extends TrackedProduct {
     public BigDecimal getDiscount() {
         return discount;
     }
+    
+    public String getDiscountPercentString() {
+        return discount.setScale(0, RoundingMode.HALF_UP).toPlainString() + "%";
+    }
 
     public void setDiscount(BigDecimal discount) {
         this.discount = discount.setScale(2, RoundingMode.HALF_UP);

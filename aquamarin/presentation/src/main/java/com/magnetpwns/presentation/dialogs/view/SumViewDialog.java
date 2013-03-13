@@ -4,6 +4,7 @@
  */
 package com.magnetpwns.presentation.dialogs.view;
 
+import com.magnetpwns.bussiness.AquamarinFacade;
 import com.magnetpwns.model.Document;
 import com.magnetpwns.model.Invoice;
 import com.magnetpwns.presentation.dialogs.AbstractOkDialog;
@@ -22,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 public class SumViewDialog extends AbstractOkDialog {
 
     private BigDecimal unpaidSum = BigDecimal.ZERO;
+    private BigDecimal untaxedSum = BigDecimal.ZERO;
     private int totalSum = 0;
     
     public SumViewDialog(Collection<Document> documents) {
@@ -30,9 +32,12 @@ public class SumViewDialog extends AbstractOkDialog {
         for (Document d : documents) {
             if (d instanceof Invoice) {    
                 Invoice i = (Invoice) d;
+                if (i.getItems() == null)
+                    AquamarinFacade.getDefault().loadInvoice(i);
                 if (!i.isCancelled()) {
                     totalSum += d.getSavedTotal();
                     unpaidSum = unpaidSum.add(((Invoice) d).getUnpaid());
+                    untaxedSum = untaxedSum.add(d.getDiscountedTotal());
                 }
             }
         }
@@ -45,11 +50,14 @@ public class SumViewDialog extends AbstractOkDialog {
         innerPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         
         JLabel totalLabel = new JLabel("Celkem fakturováno: " + totalSum);
+        JLabel untaxedLabel = new JLabel("(Bez DPH: " + untaxedSum + ")");
         JLabel unpaidLabel = new JLabel("Z toho nezaplaceno: " + unpaidSum.toPlainString());
         
         totalLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        untaxedLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         unpaidLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         innerPane.add(totalLabel);
+        innerPane.add(untaxedLabel);
         innerPane.add(unpaidLabel);
         
         return innerPane;

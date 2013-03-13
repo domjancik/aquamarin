@@ -157,6 +157,7 @@ public class ProductDAODerby implements ProductDAO {
         addHisPs.setInt(1, p.getId().getId());
         addHisPs.setBigDecimal(2, p.getPrice());
         addHisPs.setDate(3, new java.sql.Date(new Date().getTime()));
+        addHisPs.executeUpdate();
     }
     
     @Override

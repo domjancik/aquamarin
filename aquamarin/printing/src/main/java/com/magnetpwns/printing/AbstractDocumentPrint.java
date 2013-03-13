@@ -15,6 +15,7 @@ import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Map;
 import org.apache.commons.lang.WordUtils;
@@ -116,7 +117,7 @@ public abstract class AbstractDocumentPrint<T extends Document> implements Print
         yMax += 5;
         drawLine(graphics, yMax);
         
-        Collection<TaxRate> taxRates = AquamarinFacade.getDefault().findAllTaxRates();
+        Collection<TaxRate> taxRates = AquamarinFacade.getDefault().findAllTaxRates(document.getIssueDate());
         
         String[] row1Data = new String[getColumnCount()];
         String[] row2Data = new String[getColumnCount()];

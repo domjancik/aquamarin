@@ -48,7 +48,7 @@ public class TaxRateDAODerby implements TaxRateDAO {
             addPs = connection.prepareStatement("INSERT INTO TAXRATE VALUES (DEFAULT, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             deletePs = connection.prepareStatement("DELETE FROM TAXRATE WHERE ID = ?");
             updatePs = connection.prepareStatement("UPDATE TAXRATE SET taxrate_name = ?, taxrate = ? WHERE ID = ?");
-            findHisPs = connection.prepareStatement("SELECT price FROM PRICEHISTORY WHERE product_id = ? AND valid > ? ORDER BY valid ASC");
+            findHisPs = connection.prepareStatement("SELECT taxrate FROM TAXRATEHISTORY WHERE taxrate_id = ? AND valid > ? ORDER BY valid ASC");
             findHisPs.setMaxRows(1);
             addHisPs = connection.prepareStatement("INSERT INTO TAXRATEHISTORY VALUES (?, ?, ?)");
         } catch (SQLException ex) {
@@ -140,6 +140,7 @@ public class TaxRateDAODerby implements TaxRateDAO {
         addHisPs.setInt(1, t.getId().getId());
         addHisPs.setBigDecimal(2, t.getTaxRate());
         addHisPs.setDate(3, new java.sql.Date(new Date().getTime()));
+        addHisPs.executeUpdate();
     }
     
     @Override

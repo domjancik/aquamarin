@@ -117,6 +117,27 @@ public class AquamarinFacadeImpl extends AquamarinFacade {
     }
 
     @Override
+    public Collection<TaxRate> findAllTaxRates(Date date) {
+        Collection<TaxRate> taxRatesNoDate = AquamarinFacade.getDefault().findAllTaxRates();
+        
+        Collection<TaxRate> taxRates = new LinkedList<TaxRate>();
+        
+        for (TaxRate taxRate : taxRatesNoDate) {
+            taxRates.add(
+                    DAOFactory.getDefault().createTaxRateDAO().find(
+                        taxRate.getId(), date)
+                    );
+        }
+        
+        return taxRates;
+    }
+
+    @Override
+    public TaxRate findTaxRate(TaxRateId id, Date date) {
+        return DAOFactory.getDefault().createTaxRateDAO().find(id, date);
+    }
+
+    @Override
     public TaxRate addTaxRate(TaxRate t) {
         return DAOFactory.getDefault().createTaxRateDAO().add(t);
     }

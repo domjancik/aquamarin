@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,7 +44,7 @@ public class StockDAODerby implements StockDAO {
         this.connection = connection;
         
         try {
-            findPs = connection.prepareStatement("SELECT * FROM STOCK WHERE client_id = ?");
+            findPs = connection.prepareStatement("SELECT * FROM STOCK s JOIN product p ON s.product_id = p.id WHERE s.client_id = ? ORDER BY p.product_code ASC");
             findOnePs = connection.prepareStatement("SELECT * FROM STOCK WHERE client_id = ? AND product_id = ?");
             checkPs = connection.prepareStatement("SELECT amount FROM STOCK WHERE client_id = ? AND product_id = ?");
             addPs = connection.prepareStatement("INSERT INTO STOCK VALUES (?, ?, ?, DEFAULT, DEFAULT)");
@@ -69,7 +70,7 @@ public class StockDAODerby implements StockDAO {
         try {
             findPs.setInt(1, c.getId().getId());
             ResultSet rs = findPs.executeQuery();
-            Set<StockItem> items = new HashSet<StockItem>();
+            Set<StockItem> items = new LinkedHashSet<StockItem>();
             while (rs.next()) {
                 Product p = ProductDAODerby.getInstance(connection).find(new ProductId(rs.getInt("product_id")));
                 

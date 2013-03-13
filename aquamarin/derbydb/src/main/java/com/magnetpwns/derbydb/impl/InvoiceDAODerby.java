@@ -125,7 +125,7 @@ public class InvoiceDAODerby implements InvoiceDAO {
         addSpecItemPs.executeUpdate();      
     }
     
-    private DocumentItem parseSpecItem(ResultSet rs) throws SQLException {
+    private DocumentItem parseSpecItem(ResultSet rs, Date invoiceDate) throws SQLException {
         return new DocumentItem(
                 new Product(
                 ProductId.SPECIFIC, rs.getString("product_code"), null,
@@ -133,7 +133,7 @@ public class InvoiceDAODerby implements InvoiceDAO {
                 rs.getBigDecimal("price"), BigDecimal.ZERO,
                 emptyManuf,
                 TaxRateDAODerby.getInstance(connection).find(
-                    new TaxRateId(rs.getInt("tax_id"))
+                    new TaxRateId(rs.getInt("tax_id")), invoiceDate
                 ), UnitDAODerby.getInstance(connection).find(
                     new UnitId(rs.getInt("unit_id"))
                 )), rs.getInt("amount"),
@@ -330,7 +330,7 @@ public class InvoiceDAODerby implements InvoiceDAO {
             findSpecItemPs.setInt(1, i.getId().getId());
             rs  = findSpecItemPs.executeQuery();
             while (rs.next()) {
-                items.add(parseSpecItem(rs));
+                items.add(parseSpecItem(rs, i.getIssueDate()));
             }
             rs.close();
             

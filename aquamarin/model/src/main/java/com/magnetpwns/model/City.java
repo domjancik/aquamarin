@@ -37,13 +37,19 @@ public class City implements Identifiable {
         return postcode;
     }
     
-    public String getParsedPostcode() {
-        String p = Integer.toString(postcode);
+    private String parsePostcode(String p) {
         if (p.length() == 5) {
             return p.substring(0, 3) + " " + p.substring(3);
+        } else if (p.length() < 5) {
+            return parsePostcode("0" + p);
         } else {
             return p;
         }
+    }
+    
+    public String getParsedPostcode() {
+        String p = Integer.toString(postcode);
+        return parsePostcode(p);
     }
 
     public Country getCountry() {

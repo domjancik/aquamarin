@@ -260,7 +260,7 @@ public class DerbyConnection {
                     + "date_issue DATE,"
                     + "date_valid DATE,"
                     + paymentTypeEnum
-                    + "note VARCHAR(200),"
+                    + "note VARCHAR(400),"
                     + "note_delivery VARCHAR(200),"
                     + "total INT,"
                     + "CONSTRAINT PROFORMA_CLIENT_FK FOREIGN KEY (client_id)"
@@ -301,7 +301,7 @@ public class DerbyConnection {
                     + paymentTypeEnum2
                     + "unpaid DECIMAL(11,2),"
                     + "date_cancelled DATE,"
-                    + "note VARCHAR(200),"
+                    + "note VARCHAR(400),"
                     + "note_delivery VARCHAR(200),"
                     + "seq INT,"
                     + "total INT,"
@@ -380,7 +380,7 @@ public class DerbyConnection {
                     + "ID INT PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY,"
                     + "client_id INT NOT NULL,"
                     + "date_issue DATE,"
-                    + "note VARCHAR(200),"
+                    + "note VARCHAR(400),"
                     + "note_delivery VARCHAR(200),"
                     + "blocking INT,"
                     + "total INT,"

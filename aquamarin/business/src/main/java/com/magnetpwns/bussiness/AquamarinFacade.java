@@ -70,6 +70,8 @@ public abstract class AquamarinFacade {
     public abstract boolean updateManuf(Manufacturer m);
     
     public abstract Collection<TaxRate> findAllTaxRates();
+    public abstract Collection<TaxRate> findAllTaxRates(Date date);
+    public abstract TaxRate findTaxRate(TaxRateId id, Date date);
     public abstract TaxRate addTaxRate(TaxRate t);
     public abstract boolean deleteTaxRate(TaxRate t);
     public abstract boolean updateTaxRate(TaxRate t);

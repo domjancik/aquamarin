@@ -41,6 +41,8 @@ public class InvoiceDAODerby implements InvoiceDAO {
     private PreparedStatement loadOneItemPs;
     private PreparedStatement findMaxSeqPs;
     
+    private PreparedStatement findLastPaymentDate;
+    
     private PreparedStatement updateTotalPs;
     
     private Map<Integer, Client> cachedClients;
@@ -82,6 +84,9 @@ public class InvoiceDAODerby implements InvoiceDAO {
             findMaxSeqPs = connection.prepareStatement("SELECT seq FROM INVOICE WHERE YEAR(date_issue) = ? ORDER BY seq DESC");
             findAlternatePrice = connection.prepareStatement("SELECT price FROM ALTERNATEPRICE WHERE ID = ?");
             findMaxSeqPs.setFetchSize(1);
+            
+            findLastPaymentDate = connection.prepareStatement("SELECT payment_date FROM PAYMENT WHERE doc_id = ? ORDER BY payment_date DESC");
+            
         } catch (SQLException ex) {
             Logger.getLogger(InvoiceDAODerby.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -244,9 +249,16 @@ public class InvoiceDAODerby implements InvoiceDAO {
         String deliveryNote = rs.getString("note_delivery");
         int seq = rs.getInt("seq");
         int savedTotal = rs.getInt("total");
-        return new Invoice(
+        
+        Invoice i = new Invoice(
                 new DocumentId(id), client, issueDate, null, note, deliveryNote,
                 savedTotal, endDate, paymentType, null, unpaid, cancelDate, seq);
+        
+        if (i.getUnpaid().compareTo(BigDecimal.ZERO) == 0) {
+            loadLastPayment(i);   
+        }            
+        
+        return i;
     }
     
     public void updateTotals() {
@@ -260,6 +272,15 @@ public class InvoiceDAODerby implements InvoiceDAO {
             rs.close();
         } catch (SQLException ex) {
             Logger.getLogger(InvoiceDAODerby.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    protected void loadLastPayment(Invoice i) throws SQLException {
+        findLastPaymentDate.setInt(1, i.getId().getId());
+        ResultSet rs = findLastPaymentDate.executeQuery();
+        
+        if (rs.next()) {
+            i.setLastPaymentDate(rs.getDate(1));
         }
     }
     

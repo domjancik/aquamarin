@@ -5,8 +5,8 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/printing/Bundle.prope
 OpenIDE-Module-Layer: com/magnetpwns/printing/layer.xml
 OpenIDE-Module-Requires: org.openide.windows.WindowManager
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20130118
-OpenIDE-Module-Build-Version: 201301182245
+OpenIDE-Module-Implementation-Version: 1.0-20130628
+OpenIDE-Module-Build-Version: 201306281953
 OpenIDE-Module: com.magnetpwns.printing
 OpenIDE-Module-Public-Packages: com.magnetpwns.printing.*
 OpenIDE-Module-Display-Category: com.magnetpwns

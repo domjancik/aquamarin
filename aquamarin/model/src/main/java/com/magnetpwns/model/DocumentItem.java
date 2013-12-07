@@ -42,7 +42,11 @@ public class DocumentItem extends TrackedProduct {
     }
     
     public BigDecimal getDiscountedTaxedTotal() {
-        return getTaxedDiscountedProductPrice().multiply(new BigDecimal(getAmount())).setScale(2, RoundingMode.HALF_UP);
+        return getDiscountedTaxedProductPrice().multiply(new BigDecimal(getAmount())).setScale(2, RoundingMode.HALF_UP);
+    }
+    
+    public BigDecimal getDiscountedTotalTax() {
+        return getDiscountedTaxedTotal().subtract(getDiscountedTotal());
     }
     
     public BigDecimal getDiscountedProductPrice() {
@@ -55,8 +59,7 @@ public class DocumentItem extends TrackedProduct {
                 .setScale(2, RoundingMode.HALF_UP);
     }
     
-    public BigDecimal getTaxedDiscountedProductPrice() {
-        return getProduct().getPrice().multiply(getDiscountMultiplication()).setScale(0, RoundingMode.HALF_UP)
-                .setScale(2, RoundingMode.HALF_UP);
+    public BigDecimal getTaxedDiscountedProductTax() {
+        return getDiscountedTaxedProductPrice().subtract(getDiscountedProductPrice());
     }
 }

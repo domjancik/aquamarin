@@ -4,8 +4,8 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/presentation/Bundle.p
 OpenIDE-Module-Layer: com/magnetpwns/presentation/layer.xml
 OpenIDE-Module-Requires: org.openide.windows.WindowManager
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20130313
-OpenIDE-Module-Build-Version: 201303131656
+OpenIDE-Module-Implementation-Version: 1.0-20131207
+OpenIDE-Module-Build-Version: 201312071642
 OpenIDE-Module: com.magnetpwns.presentation
 OpenIDE-Module-Public-Packages: -
 OpenIDE-Module-Display-Category: com.magnetpwns

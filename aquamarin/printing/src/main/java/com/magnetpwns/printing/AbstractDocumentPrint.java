@@ -138,7 +138,7 @@ public abstract class AbstractDocumentPrint<T extends Document> implements Print
         
         BigDecimal taxTotal = BigDecimal.ZERO;
         
-        int i = 2;
+        int i = getColumnCount() - 5;
         for (TaxRate taxRate : taxRates) {
             row1Data[i] = "\\b" + taxRate.toPercentString();
             BigDecimal taxRateTotal = taxRateTotals.get(taxRate.getId());
@@ -192,6 +192,14 @@ public abstract class AbstractDocumentPrint<T extends Document> implements Print
         
         yMax += SPACE;
         GraphicsOperation.drawMultiline(halfWidth, yMax, new String[] {"Podpis a razítko:"}, graphics);
+        
+        yMax += SPACE * 6;
+        // @TODO allow for custom setting
+        GraphicsOperation.drawMultiline(0, yMax, new String[]
+        {"\\zSpolečnost zapsána v Obchodním rejstříku vedeném Krajským soudem v Českých Budějovicích oddíl C, vložka 9893",
+        "\\s",
+        "\\Swww.oticon.cz   oticon@oticon.cz   tel.: +420 222 980 200   fax: +420 222 980 208"
+        }, graphics);
         
         return PAGE_EXISTS;
     }
@@ -255,7 +263,9 @@ public abstract class AbstractDocumentPrint<T extends Document> implements Print
     }
     
     protected String getSupplierBottomline() {
-        return "\\sZapsán v ŽR Ob. ŽÚ Praha JM";
+        //return "\\sZapsán v ŽR Ob. ŽÚ Praha JM";
+        // @TODO allow for custom setting
+        return "";
     }
      
     private void drawSupplierBox(Graphics g, int x, int y, int width, int height) {

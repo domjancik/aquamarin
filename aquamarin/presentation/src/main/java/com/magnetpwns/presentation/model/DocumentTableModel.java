@@ -10,6 +10,7 @@ import com.magnetpwns.model.Invoice;
 import com.magnetpwns.model.ProformaInvoice;
 import java.math.RoundingMode;
 import java.util.Collection;
+import java.util.Date;
 import org.openide.util.NbBundle;
 
 /**
@@ -24,7 +25,7 @@ public class DocumentTableModel extends GenericTableModel<Document> {
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
 
     @Override
@@ -41,7 +42,9 @@ public class DocumentTableModel extends GenericTableModel<Document> {
             case 4:
                 return NbBundle.getMessage(DocumentTableModel.class, "TCN_Left");            
             case 5:
-                return NbBundle.getMessage(DocumentTableModel.class, "TCN_Total");            
+                return NbBundle.getMessage(DocumentTableModel.class, "TCN_Total");
+            case 6:
+                return NbBundle.getMessage(DocumentTableModel.class, "TCN_PaidOn");
             default:
                 return "";
         }
@@ -83,8 +86,19 @@ public class DocumentTableModel extends GenericTableModel<Document> {
                     return ((Delivery) d).getBlocking();
             case 5:
                 return d.getSavedTotal();
+            case 6:
+                if (d instanceof Invoice)
+                    return ((Invoice)d).getLastPaymentDate();
             default:
                 return "";
         }
+    }
+
+    @Override
+    public Class getColumnClass(int c) {
+        if (c == 6)
+            return Date.class;
+        
+        return super.getColumnClass(c);
     }
 }

@@ -132,7 +132,8 @@ public class GraphicsOperation {
         BOLD,
         TITLE,
         SMALL,
-        SMALLBOLD
+        SMALLBOLD,
+        SMALLSMALL
     }
     
     private static FontStyle checkStyle(String s) {        
@@ -140,6 +141,8 @@ public class GraphicsOperation {
             return FontStyle.SMALLBOLD;
         if (s.matches("^\\\\s.*"))
             return FontStyle.SMALL;
+        if (s.matches("^\\\\z.*"))
+            return FontStyle.SMALLSMALL;
         if (s.matches("^\\\\b.*"))
             return FontStyle.BOLD;
         if (s.matches("^\\\\t.*"))
@@ -159,6 +162,8 @@ public class GraphicsOperation {
                     return f.deriveFont(Font.BOLD, f.getSize() + 2);
                 case SMALL:
                     return f.deriveFont(Font.PLAIN, f.getSize() - 2);
+                case SMALLSMALL:
+                    return f.deriveFont(Font.PLAIN, f.getSize() - 4);
                 case SMALLBOLD:
                     return f.deriveFont(Font.BOLD, f.getSize() - 2);
                 default:

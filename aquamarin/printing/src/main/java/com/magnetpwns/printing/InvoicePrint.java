@@ -6,6 +6,7 @@ package com.magnetpwns.printing;
 
 import com.magnetpwns.model.DocumentItem;
 import com.magnetpwns.model.Invoice;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import org.openide.util.NbBundle;
 
@@ -15,8 +16,18 @@ import org.openide.util.NbBundle;
  */
 public class InvoicePrint extends AbstractDocumentPrint<Invoice> {
 
+    boolean hasDiscount;
+    
     public InvoicePrint(Invoice document) {
         super(document);
+        
+        hasDiscount = false;
+        for (DocumentItem i : document.getItems()) {
+            if (i.getDiscount().compareTo(BigDecimal.ZERO) != 0) {
+                hasDiscount = true;
+                break;
+            }
+        }
     }
 
     @Override
@@ -52,56 +63,99 @@ public class InvoicePrint extends AbstractDocumentPrint<Invoice> {
 
     @Override
     protected String[] getRowLabels() {
-        return new String[] {
-            "Označení\nPopis dodávky",
-            "Kód",
-            "Ks",
-            "DPH",
-            "Cena ks CZK\nCena ks s DPH CZK",
-            "Celkem CZK\nCelkem s DPH CZK",
-            "Sleva",
-        };
+        if (hasDiscount)
+            return new String[] {
+                "Označení\nPopis dodávky",
+                "Kód",
+                "Ks",
+                "DPH",
+                "Cena ks CZK\nCena ks s DPH CZK",
+                "Celkem CZK\nCelkem s DPH CZK",
+                "Sleva",
+            };
+        else
+            return new String[] {
+                "Označení\nPopis dodávky",
+                "Kód",
+                "Ks",
+                "DPH",
+                "Cena ks CZK\nCena ks s DPH CZK",
+                "Celkem CZK\nCelkem s DPH CZK",
+            };
+            
     }
 
     @Override
     protected String[] getRow(DocumentItem di) {
-        return new String[] {
-            di.getProduct().toString(),
-            di.getProduct().getCode(),
-            Integer.toString(di.getAmount()),
-            di.getProduct().getTaxRate().toPercentString(),
-            di.getDiscountedProductPrice().toPlainString() + "\n"
-                + di.getDiscountedTaxedProductPrice().toPlainString(),
-            di.getDiscountedTotal().toPlainString() + "\n"
-                + di.getDiscountedTaxedTotal().toPlainString(),
-            di.getDiscountPercentString(),
-        };
+        if (hasDiscount)
+            return new String[] {
+                di.getProduct().toString(),
+                di.getProduct().getCode(),
+                Integer.toString(di.getAmount()),
+                di.getProduct().getTaxRate().toPercentString(),
+                di.getDiscountedProductPrice().toPlainString() + "\n"
+                    + di.getDiscountedTaxedProductPrice().toPlainString(),
+                di.getDiscountedTotal().toPlainString() + "\n"
+                    + di.getDiscountedTaxedTotal().toPlainString(),
+                di.getDiscountPercentString(),
+            };
+        else
+            return new String[] {
+                di.getProduct().toString(),
+                di.getProduct().getCode(),
+                Integer.toString(di.getAmount()),
+                di.getProduct().getTaxRate().toPercentString(),
+                di.getDiscountedProductPrice().toPlainString() + "\n"
+                    + di.getDiscountedTaxedProductPrice().toPlainString(),
+                di.getDiscountedTotal().toPlainString() + "\n"
+                    + di.getDiscountedTaxedTotal().toPlainString(),
+            };
     }
 
     @Override
     protected double[] getRowSizes() {
-        return new double[] {
-            1.5,
-            0.7,
-            0.5,
-            0.7,
-            1.2,
-            1.2,
-            0.5
-        };
+        if (hasDiscount)
+            return new double[] {
+                1.5,
+                0.7,
+                0.5,
+                0.7,
+                1.2,
+                1.2,
+                0.5
+            };
+        else
+            return new double[] {
+                1.5,
+                0.7,
+                0.5,
+                0.7,
+                1.2,
+                1.2
+            };
     }
 
     @Override
     protected int[] getRowAlignments() {
-        return new int[] {
-            GraphicsOperation.ALIGN_LEFT,
-            GraphicsOperation.ALIGN_LEFT,
-            GraphicsOperation.ALIGN_RIGHT,
-            GraphicsOperation.ALIGN_RIGHT,
-            GraphicsOperation.ALIGN_RIGHT,
-            GraphicsOperation.ALIGN_RIGHT,
-            GraphicsOperation.ALIGN_RIGHT
-        };
+        if (hasDiscount)
+            return new int[] {
+                GraphicsOperation.ALIGN_LEFT,
+                GraphicsOperation.ALIGN_LEFT,
+                GraphicsOperation.ALIGN_RIGHT,
+                GraphicsOperation.ALIGN_RIGHT,
+                GraphicsOperation.ALIGN_RIGHT,
+                GraphicsOperation.ALIGN_RIGHT,
+                GraphicsOperation.ALIGN_RIGHT
+            };
+        else
+            return new int[] {
+                GraphicsOperation.ALIGN_LEFT,
+                GraphicsOperation.ALIGN_LEFT,
+                GraphicsOperation.ALIGN_RIGHT,
+                GraphicsOperation.ALIGN_RIGHT,
+                GraphicsOperation.ALIGN_RIGHT,
+                GraphicsOperation.ALIGN_RIGHT
+            };
     }
 
     @Override
@@ -111,11 +165,13 @@ public class InvoicePrint extends AbstractDocumentPrint<Invoice> {
 
     @Override
     protected int getColumnCount() {
-        return 7;
+        return hasDiscount ? 7 : 6;
     }
 
     @Override
     protected String getItemHeader() {
-        return "Fakturujeme vám následující položky (v cenách je již obsažena uvedená sleva):";
+        return hasDiscount ?
+                "Fakturujeme vám následující položky (v cenách je již obsažena uvedená sleva):" :
+                "Fakturujeme vám následující položky:";
     }
 }

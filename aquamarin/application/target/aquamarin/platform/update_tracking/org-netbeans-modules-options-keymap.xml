@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="org.netbeans.modules.options.keymap">
-    <module_version install_time="1358597964908" last="true" origin="installer" specification_version="1.16.1">
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.options.keymap">
+    <module_version install_time="1386434720170" last="true" origin="installer" specification_version="1.16.1">
         <file crc="2363851279" name="config/Modules/org-netbeans-modules-options-keymap.xml"/>
         <file crc="4109698298" name="modules/locale/org-netbeans-modules-options-keymap_ja.jar"/>
         <file crc="505027862" name="modules/locale/org-netbeans-modules-options-keymap_pt_BR.jar"/>

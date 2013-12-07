@@ -19,6 +19,7 @@ public class Invoice extends ProformaInvoice {
     private Collection<Payment> payments;
     private BigDecimal unpaid;
     private Date cancelledDate;
+    private Date lastPaymentDate;
     private int seqNumber;
 
     public Invoice(DocumentId id, Client client, Date issueDate,
@@ -119,5 +120,13 @@ public class Invoice extends ProformaInvoice {
         sysId += getSeqNumber();
         
         return sysId;
+    }
+
+    public Date getLastPaymentDate() {
+        return lastPaymentDate;
+    }
+
+    public void setLastPaymentDate(Date lastPaymentDate) {
+        this.lastPaymentDate = lastPaymentDate;
     }
 }

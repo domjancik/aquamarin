@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.api.visual">
-    <module_version install_time="1386434716354" last="true" origin="installer" specification_version="2.30.1">
+    <module_version install_time="1421843590009" last="true" origin="installer" specification_version="2.43.1">
         <file crc="1235850484" name="config/Modules/org-netbeans-api-visual.xml"/>
-        <file crc="1532527957" name="modules/locale/org-netbeans-api-visual_ja.jar"/>
-        <file crc="3609106034" name="modules/locale/org-netbeans-api-visual_pt_BR.jar"/>
-        <file crc="2037024075" name="modules/locale/org-netbeans-api-visual_ru.jar"/>
-        <file crc="3592899896" name="modules/locale/org-netbeans-api-visual_zh_CN.jar"/>
-        <file crc="578911641" name="modules/org-netbeans-api-visual.jar"/>
+        <file crc="1569532326" name="modules/locale/org-netbeans-api-visual_ja.jar"/>
+        <file crc="4084708276" name="modules/locale/org-netbeans-api-visual_pt_BR.jar"/>
+        <file crc="3966196574" name="modules/locale/org-netbeans-api-visual_ru.jar"/>
+        <file crc="3673451142" name="modules/locale/org-netbeans-api-visual_zh_CN.jar"/>
+        <file crc="2907313487" name="modules/org-netbeans-api-visual.jar"/>
     </module_version>
 </module>

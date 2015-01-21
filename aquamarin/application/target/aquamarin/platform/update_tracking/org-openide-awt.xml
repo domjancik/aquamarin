@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.openide.awt">
-    <module_version install_time="1386434726555" last="true" origin="installer" specification_version="7.39.1">
+    <module_version install_time="1421843593357" last="true" origin="installer" specification_version="7.62.1">
         <file crc="3208246121" name="config/Modules/org-openide-awt.xml"/>
-        <file crc="768294094" name="modules/locale/org-openide-awt_ja.jar"/>
-        <file crc="3913330679" name="modules/locale/org-openide-awt_pt_BR.jar"/>
-        <file crc="2684358720" name="modules/locale/org-openide-awt_ru.jar"/>
-        <file crc="2161034231" name="modules/locale/org-openide-awt_zh_CN.jar"/>
-        <file crc="1374682075" name="modules/org-openide-awt.jar"/>
+        <file crc="1410781161" name="modules/locale/org-openide-awt_ja.jar"/>
+        <file crc="1431609701" name="modules/locale/org-openide-awt_pt_BR.jar"/>
+        <file crc="809799982" name="modules/locale/org-openide-awt_ru.jar"/>
+        <file crc="4138955045" name="modules/locale/org-openide-awt_zh_CN.jar"/>
+        <file crc="2626122838" name="modules/org-openide-awt.jar"/>
     </module_version>
 </module>

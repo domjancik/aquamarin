@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.libs.felix">
-    <module_version install_time="1386434717566" last="true" origin="installer" specification_version="2.1.1">
+    <module_version install_time="1421843590661" last="true" origin="installer" specification_version="2.12.1">
         <file crc="1327048437" name="config/Modules/org-netbeans-libs-felix.xml"/>
-        <file crc="2186356661" name="modules/ext/felix-3.2.2.jar"/>
-        <file crc="2383519663" name="modules/locale/org-netbeans-libs-felix_ja.jar"/>
-        <file crc="1363529517" name="modules/locale/org-netbeans-libs-felix_pt_BR.jar"/>
-        <file crc="3895132834" name="modules/locale/org-netbeans-libs-felix_ru.jar"/>
-        <file crc="3011232371" name="modules/locale/org-netbeans-libs-felix_zh_CN.jar"/>
-        <file crc="2469589425" name="modules/org-netbeans-libs-felix.jar"/>
+        <file crc="2638952453" name="modules/ext/felix-4.2.1.jar"/>
+        <file crc="2176483639" name="modules/locale/org-netbeans-libs-felix_ja.jar"/>
+        <file crc="2255309377" name="modules/locale/org-netbeans-libs-felix_pt_BR.jar"/>
+        <file crc="1049758786" name="modules/locale/org-netbeans-libs-felix_ru.jar"/>
+        <file crc="3874882796" name="modules/locale/org-netbeans-libs-felix_zh_CN.jar"/>
+        <file crc="2170146186" name="modules/org-netbeans-libs-felix.jar"/>
     </module_version>
 </module>

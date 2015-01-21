@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.sendopts/2">
-    <module_version install_time="1386434721896" last="true" origin="installer" specification_version="2.15.1">
+    <module_version install_time="1421843592189" last="true" origin="installer" specification_version="2.31.1">
         <file crc="3090052921" name="config/Modules/org-netbeans-modules-sendopts.xml"/>
-        <file crc="4259223576" name="modules/locale/org-netbeans-modules-sendopts_ja.jar"/>
-        <file crc="3771110064" name="modules/locale/org-netbeans-modules-sendopts_pt_BR.jar"/>
-        <file crc="673189986" name="modules/locale/org-netbeans-modules-sendopts_ru.jar"/>
-        <file crc="2400110069" name="modules/locale/org-netbeans-modules-sendopts_zh_CN.jar"/>
-        <file crc="2941896644" name="modules/org-netbeans-modules-sendopts.jar"/>
+        <file crc="2243586484" name="modules/locale/org-netbeans-modules-sendopts_ja.jar"/>
+        <file crc="3112890225" name="modules/locale/org-netbeans-modules-sendopts_pt_BR.jar"/>
+        <file crc="1958571159" name="modules/locale/org-netbeans-modules-sendopts_ru.jar"/>
+        <file crc="4251897673" name="modules/locale/org-netbeans-modules-sendopts_zh_CN.jar"/>
+        <file crc="1438024196" name="modules/org-netbeans-modules-sendopts.jar"/>
     </module_version>
 </module>

@@ -72,11 +72,16 @@
             <artifactId>integration</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <artifactId>org-apache-commons-lang</artifactId>
             <groupId>org.netbeans.external</groupId>
             <type>jar</type>
             <version>RELEASE72-BETA</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
         </dependency>
     </dependencies>
 

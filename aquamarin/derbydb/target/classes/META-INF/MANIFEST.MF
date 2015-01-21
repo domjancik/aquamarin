@@ -3,8 +3,8 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/derbydb/Bundle.proper
  ties
 OpenIDE-Module-Layer: com/magnetpwns/derbydb/layer.xml
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20130320
-OpenIDE-Module-Build-Version: 201303200300
+OpenIDE-Module-Implementation-Version: 1.0-20150121
+OpenIDE-Module-Build-Version: 201501211233
 OpenIDE-Module: com.magnetpwns.derbydb
 OpenIDE-Module-Public-Packages: com.magnetpwns.derbydb.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
@@ -13,8 +13,8 @@ OpenIDE-Module-Name: derbydb NetBeans Module
 OpenIDE-Module-Short-Description: <undefined>
 OpenIDE-Module-Long-Description: <undefined>
 OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
- n/1 > 1.11.1, com.magnetpwns.integration > 1.0, com.magnetpwns.model 
- > 1.0, org.apache.derby/10 > 10.4.1.3, org.openide.util > 8.19.1, org
- .openide.util.lookup > 8.11.1, org.netbeans.modules.options.api/1 > 1
- .24.1, org.openide.awt > 7.39.1
+ n/1 > 1.24.1, com.magnetpwns.integration > 1.0, com.magnetpwns.model 
+ > 1.0, org.apache.derby/10 > 10.4.1.3, org.openide.util > 8.39.1, org
+ .openide.util.lookup > 8.25.1, org.netbeans.modules.options.api/1 > 1
+ .41.1, org.openide.awt > 7.62.1
 

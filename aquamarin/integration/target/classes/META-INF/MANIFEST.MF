@@ -4,7 +4,7 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/integration/Bundle.pr
 OpenIDE-Module-Layer: com/magnetpwns/integration/layer.xml
 OpenIDE-Module-Specification-Version: 1.0
 OpenIDE-Module-Implementation-Version: 1.0-20150121
-OpenIDE-Module-Build-Version: 201501211138
+OpenIDE-Module-Build-Version: 201501211233
 OpenIDE-Module: com.magnetpwns.integration
 OpenIDE-Module-Public-Packages: com.magnetpwns.integration.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
@@ -13,6 +13,6 @@ OpenIDE-Module-Name: integration NetBeans Module
 OpenIDE-Module-Short-Description: <undefined>
 OpenIDE-Module-Long-Description: <undefined>
 OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
- n/1 > 1.11.1, org.openide.util.lookup > 8.11.1, com.magnetpwns.model 
+ n/1 > 1.24.1, org.openide.util.lookup > 8.25.1, com.magnetpwns.model 
  > 1.0
 

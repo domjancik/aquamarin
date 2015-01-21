@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.core.kit">
-    <module_version install_time="1386434719162" last="true" origin="installer" specification_version="1.14.1">
-        <file crc="137587975" name="VERSION.txt"/>
+    <module_version install_time="1421843591598" last="true" origin="installer" specification_version="1.26.1">
+        <file crc="2760253963" name="VERSION.txt"/>
         <file crc="2391224559" name="config/Modules/org-netbeans-modules-core-kit.xml"/>
-        <file crc="2680828459" name="modules/locale/org-netbeans-modules-core-kit_ja.jar"/>
-        <file crc="2935747773" name="modules/locale/org-netbeans-modules-core-kit_pt_BR.jar"/>
-        <file crc="939579541" name="modules/locale/org-netbeans-modules-core-kit_ru.jar"/>
-        <file crc="2853342032" name="modules/locale/org-netbeans-modules-core-kit_zh_CN.jar"/>
-        <file crc="1423376800" name="modules/org-netbeans-modules-core-kit.jar"/>
+        <file crc="2581113262" name="modules/locale/org-netbeans-modules-core-kit_ja.jar"/>
+        <file crc="2872514321" name="modules/locale/org-netbeans-modules-core-kit_pt_BR.jar"/>
+        <file crc="1287597198" name="modules/locale/org-netbeans-modules-core-kit_ru.jar"/>
+        <file crc="1483153400" name="modules/locale/org-netbeans-modules-core-kit_zh_CN.jar"/>
+        <file crc="2900675091" name="modules/org-netbeans-modules-core-kit.jar"/>
     </module_version>
 </module>

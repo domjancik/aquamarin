@@ -4,7 +4,7 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/model/Bundle.properti
 OpenIDE-Module-Layer: com/magnetpwns/model/layer.xml
 OpenIDE-Module-Specification-Version: 1.0
 OpenIDE-Module-Implementation-Version: 1.0-20150121
-OpenIDE-Module-Build-Version: 201501211138
+OpenIDE-Module-Build-Version: 201501211233
 OpenIDE-Module: com.magnetpwns.model
 OpenIDE-Module-Public-Packages: com.magnetpwns.model.*, com.magnetpwns
  .model.exception.*
@@ -14,5 +14,5 @@ OpenIDE-Module-Name: model NetBeans Module
 OpenIDE-Module-Short-Description: <undefined>
 OpenIDE-Module-Long-Description: <undefined>
 OpenIDE-Module-Module-Dependencies: org.netbeans.api.annotations.commo
- n/1 > 1.11.1
+ n/1 > 1.24.1
 

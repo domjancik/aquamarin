@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="com.magnetpwns.branding">
-    <module_version install_time="1386434725884" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1421843593019" last="true" origin="installer" specification_version="1.0">
         <file crc="2756663983" name="config/Modules/com-magnetpwns-branding.xml"/>
-        <file crc="2844881876" name="core/locale/core_aquamarin.jar"/>
-        <file crc="2400074215" name="modules/com-magnetpwns-branding.jar"/>
-        <file crc="1486989981" name="modules/locale/org-netbeans-core-windows_aquamarin.jar"/>
-        <file crc="1388840051" name="modules/locale/org-netbeans-core_aquamarin.jar"/>
-        <file crc="2109489205" name="update_tracking/com-magnetpwns-branding.xml"/>
+        <file crc="2668967140" name="core/locale/core_aquamarin.jar"/>
+        <file crc="1732857504" name="modules/com-magnetpwns-branding.jar"/>
+        <file crc="2102784632" name="modules/locale/org-netbeans-core-windows_aquamarin.jar"/>
+        <file crc="1850632038" name="modules/locale/org-netbeans-core_aquamarin.jar"/>
+        <file crc="3378705725" name="update_tracking/com-magnetpwns-branding.xml"/>
     </module_version>
 </module>

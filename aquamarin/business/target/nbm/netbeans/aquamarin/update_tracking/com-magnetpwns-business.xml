@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="com.magnetpwns.business">
-    <module_version install_time="1421840301157" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1421843583386" last="true" origin="installer" specification_version="1.0">
         <file crc="551691865" name="config/Modules/com-magnetpwns-business.xml"/>
-        <file crc="3777049048" name="modules/com-magnetpwns-business.jar"/>
-        <file crc="3723008512" name="update_tracking/com-magnetpwns-business.xml"/>
+        <file crc="605766311" name="modules/com-magnetpwns-business.jar"/>
+        <file crc="3331426426" name="update_tracking/com-magnetpwns-business.xml"/>
     </module_version>
 </module>

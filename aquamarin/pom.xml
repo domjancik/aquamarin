@@ -79,7 +79,7 @@
   </modules>
 
     <properties>
-        <netbeans.version>RELEASE71</netbeans.version>
+        <netbeans.version>RELEASE801</netbeans.version>
         <brandingToken>aquamarin</brandingToken>
     </properties>
 </project>

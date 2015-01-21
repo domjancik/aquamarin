@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.swing.outline">
-    <module_version install_time="1386434728539" last="true" origin="installer" specification_version="1.17.1">
+    <module_version install_time="1421843594242" last="true" origin="installer" specification_version="1.30.1">
         <file crc="3679534386" name="config/Modules/org-netbeans-swing-outline.xml"/>
-        <file crc="1500298695" name="modules/locale/org-netbeans-swing-outline_ja.jar"/>
-        <file crc="2174714527" name="modules/locale/org-netbeans-swing-outline_pt_BR.jar"/>
-        <file crc="2091668905" name="modules/locale/org-netbeans-swing-outline_ru.jar"/>
-        <file crc="3530541837" name="modules/locale/org-netbeans-swing-outline_zh_CN.jar"/>
-        <file crc="4040975611" name="modules/org-netbeans-swing-outline.jar"/>
+        <file crc="1963950648" name="modules/locale/org-netbeans-swing-outline_ja.jar"/>
+        <file crc="1120284363" name="modules/locale/org-netbeans-swing-outline_pt_BR.jar"/>
+        <file crc="1459989495" name="modules/locale/org-netbeans-swing-outline_ru.jar"/>
+        <file crc="314103815" name="modules/locale/org-netbeans-swing-outline_zh_CN.jar"/>
+        <file crc="3139011263" name="modules/org-netbeans-swing-outline.jar"/>
     </module_version>
 </module>

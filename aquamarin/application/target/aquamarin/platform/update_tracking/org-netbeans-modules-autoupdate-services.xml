@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.autoupdate.services">
-    <module_version install_time="1386434718970" last="true" origin="installer" specification_version="1.28.1">
+    <module_version install_time="1421843591497" last="true" origin="installer" specification_version="1.47.1">
         <file crc="83784818" name="config/Modules/org-netbeans-modules-autoupdate-services.xml"/>
-        <file crc="2596111038" name="modules/ext/locale/updater_ja.jar"/>
-        <file crc="1676017204" name="modules/ext/locale/updater_pt_BR.jar"/>
-        <file crc="2412813178" name="modules/ext/locale/updater_ru.jar"/>
-        <file crc="1853891567" name="modules/ext/locale/updater_zh_CN.jar"/>
-        <file crc="3140786487" name="modules/ext/updater.jar"/>
-        <file crc="2561542269" name="modules/locale/org-netbeans-modules-autoupdate-services_ja.jar"/>
-        <file crc="2434869127" name="modules/locale/org-netbeans-modules-autoupdate-services_pt_BR.jar"/>
-        <file crc="3651791538" name="modules/locale/org-netbeans-modules-autoupdate-services_ru.jar"/>
-        <file crc="490797506" name="modules/locale/org-netbeans-modules-autoupdate-services_zh_CN.jar"/>
-        <file crc="297407191" name="modules/org-netbeans-modules-autoupdate-services.jar"/>
+        <file crc="568492072" name="modules/ext/locale/updater_ja.jar"/>
+        <file crc="349790587" name="modules/ext/locale/updater_pt_BR.jar"/>
+        <file crc="3566148819" name="modules/ext/locale/updater_ru.jar"/>
+        <file crc="1104327815" name="modules/ext/locale/updater_zh_CN.jar"/>
+        <file crc="3787813978" name="modules/ext/updater.jar"/>
+        <file crc="1120362630" name="modules/locale/org-netbeans-modules-autoupdate-services_ja.jar"/>
+        <file crc="111771506" name="modules/locale/org-netbeans-modules-autoupdate-services_pt_BR.jar"/>
+        <file crc="334753158" name="modules/locale/org-netbeans-modules-autoupdate-services_ru.jar"/>
+        <file crc="506852453" name="modules/locale/org-netbeans-modules-autoupdate-services_zh_CN.jar"/>
+        <file crc="112886341" name="modules/org-netbeans-modules-autoupdate-services.jar"/>
     </module_version>
 </module>

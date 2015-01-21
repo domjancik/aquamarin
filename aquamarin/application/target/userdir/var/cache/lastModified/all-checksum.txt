@@ -1,0 +1,13 @@
+platform=1421843769972
+cluster.aquamarin=1421843769970
+cluster.bin=1421843769970
+cluster.etc=1421843769971
+cluster.extra=1421843769971
+cluster.libraries=1421843769972
+cluster.platform=1421843769972
+user=1421843769972
+crc=27
+locale=en_US
+branding=aquamarin
+java.version=1.8.0_20
+java.vm.version=25.20-b23

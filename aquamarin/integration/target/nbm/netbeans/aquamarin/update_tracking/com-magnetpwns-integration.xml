@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="com.magnetpwns.integration">
-    <module_version install_time="1358549020230" last="true" origin="installer" specification_version="1.0">
+<?xml version="1.0" encoding="UTF-8"?><module codename="com.magnetpwns.integration">
+    <module_version install_time="1421840300940" last="true" origin="installer" specification_version="1.0">
         <file crc="356196540" name="config/Modules/com-magnetpwns-integration.xml"/>
-        <file crc="623945494" name="modules/com-magnetpwns-integration.jar"/>
-        <file crc="3010568678" name="update_tracking/com-magnetpwns-integration.xml"/>
+        <file crc="4084651371" name="modules/com-magnetpwns-integration.jar"/>
+        <file crc="3013397374" name="update_tracking/com-magnetpwns-integration.xml"/>
     </module_version>
 </module>

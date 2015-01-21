@@ -3,8 +3,8 @@ OpenIDE-Module-Localizing-Bundle: com/magnetpwns/bussiness/Bundle.prop
  erties
 OpenIDE-Module-Layer: com/magnetpwns/bussiness/layer.xml
 OpenIDE-Module-Specification-Version: 1.0
-OpenIDE-Module-Implementation-Version: 1.0-20130118
-OpenIDE-Module-Build-Version: 201301182243
+OpenIDE-Module-Implementation-Version: 1.0-20150121
+OpenIDE-Module-Build-Version: 201501211138
 OpenIDE-Module: com.magnetpwns.business
 OpenIDE-Module-Public-Packages: com.magnetpwns.bussiness.*
 OpenIDE-Module-Requires: org.openide.modules.ModuleFormat1
